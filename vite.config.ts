@@ -16,4 +16,7 @@ export default defineConfig(({ mode }) => ({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
+  server: {
+    allowedHosts: true,
+  },
 }));
