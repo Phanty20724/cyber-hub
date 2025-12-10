@@ -2,6 +2,7 @@ import { Github, ExternalLink, Star, GitFork } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
+import SEO from "@/components/SEO";
 
 const Projects = () => {
   const projects = [
@@ -65,7 +66,13 @@ const Projects = () => {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <>
+      <SEO 
+        title="SCPSC Cyber Hub Projects - Open Source Innovations"
+        description="Explore 10+ open-source projects: SCPSC Portal, CodeArena, SmartAttendance AI, EventHub, and more. Built with React, Python, TensorFlow. Join our GitHub community."
+        keywords="SCPSC projects, open source projects Bangladesh, student coding projects, React projects, Python AI projects, TensorFlow projects, GitHub student community, web development portfolio"
+      />
+      <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
           title="PROJECT VAULT"
@@ -231,6 +238,7 @@ const Projects = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

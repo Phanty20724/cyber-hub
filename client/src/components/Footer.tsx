@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
           </h2>
           
           <div className="mt-6 text-muted-foreground text-sm space-y-1">
-            <p>© 2026 SCPSC Cyber Hub. All rights reserved.</p>
+            <p>© 2025 SCPSC Cyber Hub. All rights reserved.</p>
             <p>
               Made by{" "}
               <a 

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://api.dicebear.com" crossorigin />
+    <link rel="dns-prefetch" href="https://api.dicebear.com" />
+    
     <!-- Primary Meta Tags -->
     <title>SCPSC Cyber Hub - Build the Future with Technology</title>
     <meta name="title" content="SCPSC Cyber Hub - Build the Future with Technology" />
@@ -48,12 +52,99 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "SCPSC Cyber Hub",
+      "alternateName": "Cyber Hub SCPSC",
       "url": "https://scpscch.tech",
-      "logo": "https://scpscch.tech/og-image.png",
-      "description": "SCPSC Cyber Hub is a premier IT club focusing on competitive programming, web development, AI/ML, video editing, and graphics designing.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://scpscch.tech/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "SCPSC Cyber Hub is a premier IT club focusing on competitive programming, web development, AI/ML, video editing, and graphics designing. Join 200+ innovators building the future.",
       "foundingDate": "2022",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "SCPSC Campus"
+      },
+      "memberOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "SCPSC"
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 200
+      },
+      "areaServed": "Bangladesh",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "cyberhub@scpsc.edu",
+        "contactType": "General Inquiries"
+      },
       "sameAs": [
-        "https://tahsin.cloud"
+        "https://tahsin.cloud",
+        "https://twitter.com/CyberHubSCPSC"
+      ],
+      "knowsAbout": [
+        "Competitive Programming",
+        "Web Development",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Video Editing",
+        "Graphic Design",
+        "Technology Education"
+      ]
+    }
+    </script>
+    
+    <!-- WebSite Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SCPSC Cyber Hub",
+      "url": "https://scpscch.tech",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://scpscch.tech/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Educational Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "SCPSC Cyber Hub",
+      "url": "https://scpscch.tech",
+      "description": "Premier technology education community offering courses in competitive programming, web development, AI/ML, video editing, and graphics design",
+      "teaches": [
+        {
+          "@type": "Course",
+          "name": "Competitive Programming",
+          "description": "Master algorithms, data structures, and problem-solving skills"
+        },
+        {
+          "@type": "Course",
+          "name": "Web Development",
+          "description": "Build stunning websites and powerful web applications"
+        },
+        {
+          "@type": "Course",
+          "name": "AI/ML",
+          "description": "Explore artificial intelligence and machine learning frontiers"
+        },
+        {
+          "@type": "Course",
+          "name": "Video Editing",
+          "description": "Create compelling visual stories through professional editing"
+        },
+        {
+          "@type": "Course",
+          "name": "Graphics Designing",
+          "description": "Design stunning visuals and bring creative ideas to life"
+        }
       ]
     }
     </script>

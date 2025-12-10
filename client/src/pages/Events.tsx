@@ -2,6 +2,7 @@ import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
+import SEO from "@/components/SEO";
 
 const Events = () => {
   const upcomingEvents = [
@@ -55,7 +56,13 @@ const Events = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <>
+      <SEO 
+        title="SCPSC Cyber Hub Events - Hackathons, Workshops & Tech Talks"
+        description="Explore SCPSC CODE JAM 2025, React workshops, AI/ML bootcamps, and graphics design masterclasses. Join 50+ workshops and tech events. Free registration for students."
+        keywords="SCPSC events, CODE JAM hackathon, web development workshop, AI ML bootcamp, graphics design masterclass, tech talks Bangladesh, coding competition, free tech events"
+      />
+      <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
           title="EVENT MATRIX"
@@ -194,6 +201,7 @@ const Events = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

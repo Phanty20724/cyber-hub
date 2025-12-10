@@ -4,6 +4,7 @@ import CLI from "@/components/CLI";
 import GlassCard from "@/components/GlassCard";
 import CyberButton from "@/components/CyberButton";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const features = [
@@ -35,7 +36,13 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <>
+      <SEO 
+        title="SCPSC Cyber Hub - Build the Future with Technology"
+        description="Join SCPSC Cyber Hub with 200+ members. Learn competitive programming, web development, AI/ML, video editing & graphics design. Free workshops, mentorship & real projects."
+        keywords="SCPSC Cyber Hub, competitive programming Bangladesh, web development course, AI ML learning, video editing workshop, graphics design course, tech club Bangladesh, coding bootcamp, free tech education, student tech community"
+      />
+      <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="container mx-auto px-6">
@@ -198,6 +205,7 @@ const Index = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

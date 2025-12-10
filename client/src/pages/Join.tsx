@@ -3,6 +3,7 @@ import { ArrowRight, Check, Zap, Users, Rocket, Shield } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
+import SEO from "@/components/SEO";
 
 const Join = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,13 @@ const Join = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <>
+      <SEO 
+        title="Join SCPSC Cyber Hub - Free Membership & Tech Community"
+        description="Apply for FREE membership at SCPSC Cyber Hub. Get access to weekly workshops, mentorship, projects, and 200+ tech enthusiasts. All experience levels welcome!"
+        keywords="join SCPSC Cyber Hub, free tech membership, student tech club application, coding mentorship, free programming courses, tech community Bangladesh, student developer community"
+      />
+      <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
           title="JOIN SCPSC CYBER HUB"
@@ -254,6 +261,7 @@ const Join = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

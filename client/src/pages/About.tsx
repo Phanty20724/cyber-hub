@@ -1,6 +1,7 @@
 import { Cpu, Target, Eye, Lightbulb } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
+import SEO from "@/components/SEO";
 
 const About = () => {
   const values = [
@@ -27,7 +28,13 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
+    <>
+      <SEO 
+        title="About SCPSC Cyber Hub - Our Mission, Vision & Values"
+        description="Discover SCPSC Cyber Hub's journey from 2022 to 200+ members. Learn about our mission to democratize tech education through innovation, excellence, and collaboration."
+        keywords="about SCPSC Cyber Hub, tech club mission, innovation excellence, technology education Bangladesh, student tech community, coding club history"
+      />
+      <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
           title="THE MANIFESTO"
@@ -177,6 +184,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
