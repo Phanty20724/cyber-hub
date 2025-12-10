@@ -27,7 +27,7 @@ const Navbar = () => {
               <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <span className="font-display text-2xl font-bold text-primary text-glow-cyan tracking-wider">
-              CYBER HUB
+              SCPSC CYBER HUB
             </span>
           </Link>
 

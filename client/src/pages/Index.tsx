@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Cpu, Shield, Code2, Zap } from "lucide-react";
+import { ArrowRight, Cpu, Code2, Globe, Video, Palette } from "lucide-react";
 import CLI from "@/components/CLI";
 import GlassCard from "@/components/GlassCard";
 import CyberButton from "@/components/CyberButton";
@@ -7,24 +7,29 @@ import CyberButton from "@/components/CyberButton";
 const Index = () => {
   const features = [
     {
-      icon: Shield,
-      title: "Cybersecurity",
-      description: "Master the art of digital defense and ethical hacking.",
+      icon: Code2,
+      title: "Competitive Programming",
+      description: "Sharpen your problem-solving skills and ace coding competitions.",
     },
     {
-      icon: Code2,
-      title: "Full-Stack Dev",
-      description: "Build powerful applications from frontend to backend.",
+      icon: Globe,
+      title: "Web Development",
+      description: "Build stunning websites and powerful web applications.",
     },
     {
       icon: Cpu,
-      title: "AI & ML",
-      description: "Explore the frontiers of artificial intelligence.",
+      title: "AI/ML",
+      description: "Explore the frontiers of artificial intelligence and machine learning.",
     },
     {
-      icon: Zap,
-      title: "Quantum Computing",
-      description: "Dive into the future of computational power.",
+      icon: Video,
+      title: "Video Editing",
+      description: "Create compelling visual stories through professional video editing.",
+    },
+    {
+      icon: Palette,
+      title: "Graphics Designing",
+      description: "Design stunning visuals and bring creative ideas to life.",
     },
   ];
 
@@ -49,7 +54,7 @@ const Index = () => {
             >
               <span className="text-foreground">WELCOME TO</span>
               <br />
-              <span className="text-primary text-glow-cyan-strong">CYBER HUB</span>
+              <span className="text-primary text-glow-cyan-strong">SCPSC CYBER HUB</span>
             </h1>
 
             {/* Subtitle */}
@@ -57,8 +62,8 @@ const Index = () => {
               className="text-xl md:text-2xl text-muted-foreground font-body mb-12 max-w-2xl mx-auto animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
-              Where code meets creativity. Join the collective of digital architects
-              building tomorrow's technology today.
+              Let's Build The Future. Join SCPSC's premier tech community where
+              innovation meets creativity.
             </p>
 
             {/* CTA Buttons */}
@@ -113,7 +118,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {features.map((feature, index) => (
               <GlassCard
                 key={feature.title}
@@ -144,10 +149,10 @@ const Index = () => {
           <div className="glass rounded-2xl p-6 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {[
-                { value: "500+", label: "Members" },
-                { value: "50+", label: "Projects" },
-                { value: "30+", label: "Events" },
-                { value: "15+", label: "Workshops" },
+                { value: "200+", label: "Members" },
+                { value: "10+", label: "Projects" },
+                { value: "15+", label: "Events" },
+                { value: "50+", label: "Workshops" },
               ].map((stat, index) => (
                 <div key={stat.label} className="text-center">
                   <div

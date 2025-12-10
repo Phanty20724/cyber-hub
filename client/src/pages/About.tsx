@@ -49,17 +49,17 @@ const About = () => {
               </div>
 
               <blockquote className="font-display text-2xl md:text-3xl text-foreground leading-relaxed">
-                "We are the <span className="text-primary text-glow-cyan">architects</span> of tomorrow's digital frontier. 
-                A collective of <span className="text-secondary text-glow-violet">hackers</span>, builders, and visionaries 
-                united by code and driven by the relentless pursuit of innovation."
+                "<span className="text-primary text-glow-cyan">Let's Build The Future</span>" — 
+                We are SCPSC Cyber Hub, a collective of <span className="text-secondary text-glow-violet">innovators</span>, creators, and visionaries 
+                united by passion and driven by the relentless pursuit of excellence.
               </blockquote>
 
               <div className="w-32 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
 
               <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-                Founded with a singular mission: to democratize technology education and empower 
-                the next generation of digital creators. We don't just teach code—we forge digital 
-                warriors ready to tackle the challenges of tomorrow.
+                SCPSC Cyber Hub is the premier technology club fostering innovation through 
+                Competitive Programming, Web Development, AI/ML, Video Editing, and Graphics Designing. 
+                We empower students to transform their boldest ideas into reality.
               </p>
             </div>
           </GlassCard>
@@ -143,11 +143,9 @@ const About = () => {
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary md:-translate-x-1/2" />
 
             {[
-              { year: "2020", title: "Genesis", desc: "Cyber Hub was founded by a group of passionate tech enthusiasts." },
-              { year: "2021", title: "First Hackathon", desc: "Organized our first major hackathon with 200+ participants." },
-              { year: "2022", title: "AI Division", desc: "Launched our dedicated AI/ML research division." },
-              { year: "2023", title: "500 Members", desc: "Reached a milestone of 500+ active community members." },
-              { year: "2024", title: "Quantum Initiative", desc: "Started exploring quantum computing applications." },
+              { year: "2022", title: "Genesis", desc: "SCPSC Cyber Hub was founded by passionate tech enthusiasts at SCPSC." },
+              { year: "2023", title: "Growing Strong", desc: "Expanded our core modules and reached 100+ active members." },
+              { year: "2024", title: "200+ Members", desc: "Celebrated 200+ members, 50+ workshops, and 15+ successful events." },
             ].map((item, index) => (
               <div
                 key={item.year}

@@ -4,7 +4,7 @@ import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
 
-type Category = "CYBERSEC" | "FULL-STACK" | "QUANTUM-AI";
+type Category = "CP" | "WEB-DEV" | "AI-ML" | "CREATIVE";
 
 const Ideas = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
@@ -13,49 +13,56 @@ const Ideas = () => {
 
   const categories = [
     {
-      id: "CYBERSEC" as Category,
-      icon: Shield,
-      title: "CYBERSEC",
-      description: "Security vulnerabilities, ethical hacking tools, and defense systems",
+      id: "CP" as Category,
+      icon: Code2,
+      title: "COMPETITIVE PROGRAMMING",
+      description: "Algorithms, data structures, and problem-solving challenges",
       color: "cyan",
     },
     {
-      id: "FULL-STACK" as Category,
-      icon: Code2,
-      title: "FULL-STACK",
-      description: "Web applications, APIs, databases, and cloud infrastructure",
+      id: "WEB-DEV" as Category,
+      icon: Shield,
+      title: "WEB DEVELOPMENT",
+      description: "Web applications, APIs, databases, and modern frameworks",
       color: "violet",
     },
     {
-      id: "QUANTUM-AI" as Category,
+      id: "AI-ML" as Category,
       icon: Cpu,
-      title: "QUANTUM-AI",
-      description: "Machine learning, neural networks, and quantum algorithms",
+      title: "AI/ML",
+      description: "Machine learning, neural networks, and intelligent systems",
       color: "cyan",
     },
   ];
 
   const sampleIdeas: Record<Category, string[]> = {
-    CYBERSEC: [
-      "Build a real-time network intrusion detection system using ML anomaly detection",
-      "Create a browser extension that analyzes website security and privacy practices",
-      "Develop a honeypot system that mimics vulnerable IoT devices to study attack patterns",
-      "Build a password strength analyzer that uses leaked database patterns for realistic scoring",
-      "Create a phishing simulation platform for security awareness training",
+    CP: [
+      "Build a competitive programming practice platform with daily challenges",
+      "Create an algorithm visualizer for sorting, searching, and graph algorithms",
+      "Develop a code submission system with real-time judging for contests",
+      "Build a problem recommendation engine based on skill level and weak areas",
+      "Create a collaborative whiteboard for solving problems in teams",
     ],
-    "FULL-STACK": [
+    "WEB-DEV": [
       "Build a real-time collaborative code editor with video chat integration",
-      "Create an AI-powered project management tool that predicts task completion times",
-      "Develop a microservices-based e-commerce platform with event-driven architecture",
-      "Build a developer portfolio generator that pulls data from GitHub and creates beautiful sites",
-      "Create a serverless API gateway with automatic rate limiting and authentication",
+      "Create an event management platform for SCPSC clubs and activities",
+      "Develop a student portfolio generator that showcases projects beautifully",
+      "Build a resource sharing platform for notes, tutorials, and study materials",
+      "Create a campus marketplace for students to buy and sell items",
     ],
-    "QUANTUM-AI": [
-      "Build a quantum-classical hybrid algorithm for portfolio optimization",
-      "Create a GPT-powered code review assistant that learns from your coding style",
-      "Develop a computer vision system that can detect deepfakes in real-time",
-      "Build a recommendation engine using quantum annealing for better optimization",
-      "Create an AI agent that can autonomously debug and fix code issues",
+    "AI-ML": [
+      "Build a smart attendance system using facial recognition",
+      "Create a chatbot that answers questions about SCPSC courses and events",
+      "Develop a study recommendation system based on learning patterns",
+      "Build an image classifier for campus plant and wildlife identification",
+      "Create an AI-powered resume analyzer and improvement suggester",
+    ],
+    CREATIVE: [
+      "Design a motion graphics intro template for SCPSC YouTube channels",
+      "Create a brand identity kit with logos, colors, and typography guidelines",
+      "Develop video editing presets for quick and consistent content production",
+      "Build an animated infographic template for presenting club statistics",
+      "Create social media post templates for event announcements",
     ],
   };
 

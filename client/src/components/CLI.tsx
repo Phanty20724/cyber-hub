@@ -138,7 +138,7 @@ const CLI = () => {
       <div className="bg-[#0a0a0f] p-3 md:p-6">
         <div
           ref={outputRef}
-          className="h-60 md:h-80 overflow-y-auto overflow-x-auto font-mono text-xs md:text-sm leading-relaxed scrollbar-thin scrollbar-track-transparent scrollbar-thumb-cyber-green/20"
+          className="h-60 md:h-80 overflow-y-auto overflow-x-auto font-mono text-xs md:text-sm leading-relaxed terminal-scrollbar"
         >
           {output.map((line, index) => (
             <div

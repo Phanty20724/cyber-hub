@@ -37,10 +37,11 @@ const Join = () => {
   ];
 
   const tracks = [
-    { id: "cybersec", name: "Cybersecurity" },
-    { id: "fullstack", name: "Full-Stack Development" },
-    { id: "aiml", name: "AI & Machine Learning" },
-    { id: "quantum", name: "Quantum Computing" },
+    { id: "cp", name: "Competitive Programming" },
+    { id: "webdev", name: "Web Development" },
+    { id: "aiml", name: "AI/ML" },
+    { id: "video", name: "Video Editing" },
+    { id: "graphics", name: "Graphics Designing" },
     { id: "general", name: "General / Exploring" },
   ];
 
@@ -54,8 +55,8 @@ const Join = () => {
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
-          title="JOIN THE COLLECTIVE"
-          subtitle="Begin your journey into the digital frontier"
+          title="JOIN SCPSC CYBER HUB"
+          subtitle="Let's Build The Future together"
           glowColor="cyan"
         />
 
@@ -242,10 +243,10 @@ const Join = () => {
             <GlassCard className="border-primary/40">
               <div className="text-center">
                 <div className="font-display text-4xl font-bold text-primary text-glow-cyan mb-2">
-                  500+
+                  200+
                 </div>
                 <p className="text-muted-foreground font-body">
-                  Members already part of the collective
+                  Members already part of SCPSC Cyber Hub
                 </p>
               </div>
             </GlassCard>
