@@ -112,31 +112,31 @@ const Executive = () => {
               <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/20 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
 
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 py-4">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 py-4">
                 {/* Avatar */}
                 <div className="relative">
-                  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-secondary shadow-glow-violet-lg">
+                  <div className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-secondary shadow-glow-violet-lg">
                     <img
                       src={president.image}
                       alt={president.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-secondary text-secondary-foreground font-display text-xs uppercase tracking-wider">
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 md:px-4 py-1 rounded-full bg-secondary text-secondary-foreground font-display text-[10px] md:text-xs uppercase tracking-wider whitespace-nowrap">
                     {president.title}
                   </div>
                 </div>
 
                 {/* Info */}
                 <div className="text-center md:text-left flex-1">
-                  <span className="inline-block px-3 py-1 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-xs uppercase tracking-wider mb-3">
+                  <span className="inline-block px-3 py-1 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-xs uppercase tracking-wider mb-2 md:mb-3">
                     Leadership
                   </span>
-                  <h2 className="font-display text-3xl font-bold text-secondary text-glow-violet-strong mb-1">
+                  <h2 className="font-display text-2xl md:text-3xl font-bold text-secondary text-glow-violet-strong mb-1">
                     {president.name}
                   </h2>
-                  <p className="text-primary font-display text-lg mb-4">{president.role}</p>
-                  <p className="text-muted-foreground font-body mb-6">{president.bio}</p>
+                  <p className="text-primary font-display text-base md:text-lg mb-3 md:mb-4">{president.role}</p>
+                  <p className="text-muted-foreground font-body text-sm md:text-base mb-4 md:mb-6">{president.bio}</p>
 
                   <div className="flex justify-center md:justify-start gap-4">
                     {[
@@ -161,7 +161,7 @@ const Executive = () => {
         )}
 
         {/* Other Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {otherMembers.map((member, index) => (
             <GlassCard
               key={member.name}

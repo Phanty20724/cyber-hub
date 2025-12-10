@@ -87,13 +87,13 @@ const Index = () => {
       </section>
 
       {/* CLI Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">
               <span className="text-primary text-glow-cyan">QUANTUM</span> TERMINAL
             </h2>
-            <p className="text-muted-foreground font-body">
+            <p className="text-muted-foreground font-body text-sm md:text-base">
               Interface with the Cyber Hub mainframe. Type 'help' to begin.
             </p>
           </div>
@@ -102,18 +102,18 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-2 md:mb-4">
               <span className="text-secondary text-glow-violet">CORE</span> MODULES
             </h2>
-            <p className="text-muted-foreground font-body max-w-xl mx-auto">
+            <p className="text-muted-foreground font-body max-w-xl mx-auto text-sm md:text-base px-4">
               Our specialized tracks designed to transform you into a digital architect.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {features.map((feature, index) => (
               <GlassCard
                 key={feature.title}
@@ -139,10 +139,10 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="glass rounded-2xl p-8 md:p-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="glass rounded-2xl p-6 md:p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {[
                 { value: "500+", label: "Members" },
                 { value: "50+", label: "Projects" },
@@ -151,7 +151,7 @@ const Index = () => {
               ].map((stat, index) => (
                 <div key={stat.label} className="text-center">
                   <div
-                    className={`font-display text-4xl md:text-5xl font-bold mb-2 ${
+                    className={`font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-1 md:mb-2 ${
                       index % 2 === 0
                         ? "text-primary text-glow-cyan"
                         : "text-secondary text-glow-violet"
@@ -159,7 +159,7 @@ const Index = () => {
                   >
                     {stat.value}
                   </div>
-                  <div className="font-body text-muted-foreground uppercase tracking-wider text-sm">
+                  <div className="font-body text-muted-foreground uppercase tracking-wider text-xs md:text-sm">
                     {stat.label}
                   </div>
                 </div>
@@ -170,13 +170,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <GlassCard className="text-center py-12 md:py-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+      <section className="py-12 md:py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <GlassCard className="text-center py-8 md:py-16 px-4 md:px-8">
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
               Ready to <span className="text-primary text-glow-cyan">Jack In</span>?
             </h2>
-            <p className="text-muted-foreground font-body mb-8 max-w-xl mx-auto">
+            <p className="text-muted-foreground font-body mb-6 md:mb-8 max-w-xl mx-auto text-sm md:text-base">
               The future is being written right now. Don't just watch it happen—be part of
               the code that shapes it.
             </p>

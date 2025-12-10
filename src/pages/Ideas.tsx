@@ -84,12 +84,12 @@ const Ideas = () => {
         />
 
         {/* Category Selection */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <h3 className="font-display text-xl text-foreground mb-6 text-center">
+        <div className="max-w-5xl mx-auto mb-8 md:mb-12">
+          <h3 className="font-display text-lg md:text-xl text-foreground mb-4 md:mb-6 text-center">
             Select Your <span className="text-primary text-glow-cyan">Domain</span>
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 perspective-1000">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 perspective-1000">
             {categories.map((category) => (
               <div
                 key={category.id}
@@ -115,9 +115,9 @@ const Ideas = () => {
                       : ""
                   }`}
                 >
-                  <div className="text-center py-4">
+                  <div className="text-center py-2 md:py-4">
                     <div
-                      className={`w-20 h-20 mx-auto mb-4 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                      className={`w-14 h-14 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 rounded-xl md:rounded-2xl flex items-center justify-center transition-all duration-300 ${
                         selectedCategory === category.id
                           ? category.color === "cyan"
                             ? "bg-primary/30 shadow-glow-cyan"
@@ -128,14 +128,14 @@ const Ideas = () => {
                       }`}
                     >
                       <category.icon
-                        className={`w-10 h-10 ${
+                        className={`w-7 h-7 md:w-10 md:h-10 ${
                           category.color === "cyan" ? "text-primary" : "text-secondary"
                         }`}
                       />
                     </div>
 
                     <h4
-                      className={`font-display text-2xl font-bold mb-2 ${
+                      className={`font-display text-lg md:text-2xl font-bold mb-1 md:mb-2 ${
                         selectedCategory === category.id
                           ? category.color === "cyan"
                             ? "text-primary text-glow-cyan"
@@ -146,7 +146,7 @@ const Ideas = () => {
                       {category.title}
                     </h4>
 
-                    <p className="text-muted-foreground font-body text-sm">
+                    <p className="text-muted-foreground font-body text-xs md:text-sm">
                       {category.description}
                     </p>
                   </div>

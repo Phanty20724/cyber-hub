@@ -60,7 +60,7 @@ const Join = () => {
         />
 
         {/* Benefits Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-10 md:mb-16">
           {benefits.map((benefit, index) => (
             <GlassCard
               key={benefit.title}
@@ -68,14 +68,14 @@ const Join = () => {
               glowColor={index % 2 === 0 ? "cyan" : "violet"}
             >
               <benefit.icon
-                className={`w-10 h-10 mb-4 ${
+                className={`w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-4 ${
                   index % 2 === 0 ? "text-primary" : "text-secondary"
                 }`}
               />
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">
+              <h3 className="font-display text-sm md:text-lg font-bold text-foreground mb-1 md:mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-muted-foreground font-body text-sm">
+              <p className="text-muted-foreground font-body text-xs md:text-sm hidden sm:block">
                 {benefit.description}
               </p>
             </GlassCard>
@@ -83,7 +83,7 @@ const Join = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Application Form */}
           <div>
             <GlassCard className="glass-strong">

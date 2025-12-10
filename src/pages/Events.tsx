@@ -78,30 +78,30 @@ const Events = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-display text-4xl md:text-5xl font-bold text-primary text-glow-cyan mb-4">
+                  <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4">
                     {event.title}
                   </h2>
 
-                  <p className="text-foreground font-body text-lg mb-6">
+                  <p className="text-foreground font-body text-sm md:text-lg mb-4 md:mb-6">
                     {event.description}
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-5 h-5 text-primary" />
-                      <span className="font-body">{event.date}</span>
+                      <Calendar className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                      <span className="font-body text-sm md:text-base">{event.date}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Clock className="w-5 h-5 text-primary" />
-                      <span className="font-body">{event.time}</span>
+                      <Clock className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                      <span className="font-body text-sm md:text-base">{event.time}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <MapPin className="w-5 h-5 text-primary" />
-                      <span className="font-body">{event.location}</span>
+                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                      <span className="font-body text-sm md:text-base">{event.location}</span>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Users className="w-5 h-5 text-primary" />
-                      <span className="font-body">{event.attendees} Expected</span>
+                      <Users className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                      <span className="font-body text-sm md:text-base">{event.attendees} Expected</span>
                     </div>
                   </div>
 

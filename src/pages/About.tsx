@@ -140,7 +140,7 @@ const About = () => {
 
           <div className="relative max-w-3xl mx-auto">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary -translate-x-1/2" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary md:-translate-x-1/2" />
 
             {[
               { year: "2020", title: "Genesis", desc: "Cyber Hub was founded by a group of passionate tech enthusiasts." },
@@ -151,28 +151,28 @@ const About = () => {
             ].map((item, index) => (
               <div
                 key={item.year}
-                className={`relative flex items-center gap-8 mb-12 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                className={`relative flex items-center gap-4 md:gap-8 mb-8 md:mb-12 pl-10 md:pl-0 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                   <GlassCard glowColor={index % 2 === 0 ? "cyan" : "violet"} className="inline-block">
-                    <span className={`font-display text-2xl font-bold ${
+                    <span className={`font-display text-xl md:text-2xl font-bold ${
                       index % 2 === 0 ? "text-primary" : "text-secondary"
                     }`}>
                       {item.year}
                     </span>
-                    <h4 className="font-display text-lg text-foreground mt-1">{item.title}</h4>
-                    <p className="text-muted-foreground text-sm font-body mt-2">{item.desc}</p>
+                    <h4 className="font-display text-base md:text-lg text-foreground mt-1">{item.title}</h4>
+                    <p className="text-muted-foreground text-xs md:text-sm font-body mt-2">{item.desc}</p>
                   </GlassCard>
                 </div>
 
                 {/* Center Dot */}
-                <div className={`w-4 h-4 rounded-full z-10 ${
+                <div className={`absolute left-2 md:static w-4 h-4 rounded-full z-10 ${
                   index % 2 === 0 ? "bg-primary shadow-glow-cyan" : "bg-secondary shadow-glow-violet"
                 }`} />
 
-                <div className="flex-1" />
+                <div className="hidden md:block flex-1" />
               </div>
             ))}
           </div>

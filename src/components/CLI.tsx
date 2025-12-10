@@ -123,27 +123,27 @@ const CLI = () => {
       onClick={() => inputRef.current?.focus()}
     >
       {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-cyber-dark border-b border-cyber-green/20">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-          <div className="w-3 h-3 rounded-full bg-green-500/80" />
+      <div className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-3 bg-cyber-dark border-b border-cyber-green/20">
+        <div className="flex gap-1.5 md:gap-2">
+          <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500/80" />
+          <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/80" />
+          <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80" />
         </div>
-        <span className="ml-4 font-mono text-sm text-cyber-green/70">
-          cyber_hub_terminal — bash — 80×24
+        <span className="ml-2 md:ml-4 font-mono text-xs md:text-sm text-cyber-green/70 truncate">
+          cyber_hub_terminal — bash
         </span>
       </div>
 
       {/* Terminal Body */}
-      <div className="bg-[#0a0a0f] p-6">
+      <div className="bg-[#0a0a0f] p-3 md:p-6">
         <div
           ref={outputRef}
-          className="h-80 overflow-y-auto font-mono text-sm leading-relaxed scrollbar-thin scrollbar-track-transparent scrollbar-thumb-cyber-green/20"
+          className="h-60 md:h-80 overflow-y-auto overflow-x-auto font-mono text-xs md:text-sm leading-relaxed scrollbar-thin scrollbar-track-transparent scrollbar-thumb-cyber-green/20"
         >
           {output.map((line, index) => (
             <div
               key={index}
-              className="text-cyber-green whitespace-pre-wrap"
+              className="text-cyber-green whitespace-pre"
               style={{ textShadow: "0 0 10px rgba(0, 255, 136, 0.5)" }}
             >
               {line}
@@ -152,9 +152,9 @@ const CLI = () => {
         </div>
 
         {/* Input Line */}
-        <form onSubmit={handleSubmit} className="mt-4 flex items-center gap-2">
+        <form onSubmit={handleSubmit} className="mt-3 md:mt-4 flex items-center gap-1 md:gap-2">
           <span
-            className="text-cyber-green font-mono"
+            className="text-cyber-green font-mono text-xs md:text-sm whitespace-nowrap"
             style={{ textShadow: "0 0 10px rgba(0, 255, 136, 0.5)" }}
           >
             cyber@hub:~$
@@ -165,11 +165,11 @@ const CLI = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isTyping}
-            className="flex-1 bg-transparent border-none outline-none font-mono text-cyber-green caret-cyber-green"
+            className="flex-1 min-w-0 bg-transparent border-none outline-none font-mono text-xs md:text-sm text-cyber-green caret-cyber-green"
             style={{ textShadow: "0 0 10px rgba(0, 255, 136, 0.5)" }}
             autoFocus
           />
-          <span className="text-cyber-green animate-blink">█</span>
+          <span className="text-cyber-green animate-blink text-xs md:text-sm">█</span>
         </form>
       </div>
     </div>

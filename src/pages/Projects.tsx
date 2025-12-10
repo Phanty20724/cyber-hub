@@ -156,11 +156,11 @@ const Projects = () => {
 
         {/* Other Projects Grid */}
         <div>
-          <h3 className="font-display text-xl text-foreground mb-8">
+          <h3 className="font-display text-lg md:text-xl text-foreground mb-6 md:mb-8">
             <span className="text-primary text-glow-cyan">MORE</span> PROJECTS
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {otherProjects.map((project, index) => (
               <GlassCard
                 key={project.title}
