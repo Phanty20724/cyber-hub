@@ -1,0 +1,200 @@
+import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
+import GlassCard from "@/components/GlassCard";
+import SectionTitle from "@/components/SectionTitle";
+import CyberButton from "@/components/CyberButton";
+
+const Events = () => {
+  const upcomingEvents = [
+    {
+      title: "HACKATHON 2025",
+      date: "Jan 15-17, 2025",
+      time: "48 Hours",
+      location: "Innovation Lab",
+      attendees: "200+",
+      description: "Our flagship annual hackathon. Build, innovate, and compete for prizes worth ₹50,000.",
+      type: "Competition",
+      featured: true,
+    },
+    {
+      title: "AI WORKSHOP: Neural Networks",
+      date: "Jan 22, 2025",
+      time: "10:00 AM - 4:00 PM",
+      location: "Tech Auditorium",
+      attendees: "50",
+      description: "Deep dive into neural network architectures and hands-on implementation with PyTorch.",
+      type: "Workshop",
+      featured: false,
+    },
+    {
+      title: "CTF CHALLENGE: RED TEAM OPS",
+      date: "Feb 01, 2025",
+      time: "24 Hours",
+      location: "Online",
+      attendees: "100+",
+      description: "Test your cybersecurity skills in our Capture The Flag challenge. Multiple difficulty levels.",
+      type: "Competition",
+      featured: false,
+    },
+    {
+      title: "TECH TALK: Quantum Computing",
+      date: "Feb 10, 2025",
+      time: "6:00 PM - 8:00 PM",
+      location: "Seminar Hall B",
+      attendees: "80",
+      description: "Industry expert discusses the future of quantum computing and its applications.",
+      type: "Talk",
+      featured: false,
+    },
+  ];
+
+  const pastEvents = [
+    { title: "Web3 Bootcamp", date: "Dec 2024", attendees: "75" },
+    { title: "Linux Fundamentals", date: "Nov 2024", attendees: "60" },
+    { title: "Cybersecurity 101", date: "Oct 2024", attendees: "90" },
+    { title: "React Masterclass", date: "Sep 2024", attendees: "85" },
+  ];
+
+  return (
+    <div className="min-h-screen pt-24 pb-20">
+      <div className="container mx-auto px-6">
+        <SectionTitle
+          title="EVENT MATRIX"
+          subtitle="Immerse yourself in workshops, hackathons, and tech talks"
+        />
+
+        {/* Featured Event */}
+        {upcomingEvents.filter((e) => e.featured).map((event) => (
+          <div key={event.title} className="mb-16">
+            <GlassCard className="relative overflow-hidden border-primary/40">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
+
+              <div className="relative z-10 flex flex-col lg:flex-row gap-8">
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/50 bg-primary/10 mb-4">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
+                    <span className="font-display text-xs text-primary uppercase tracking-wider">
+                      Featured Event
+                    </span>
+                  </div>
+
+                  <h2 className="font-display text-4xl md:text-5xl font-bold text-primary text-glow-cyan mb-4">
+                    {event.title}
+                  </h2>
+
+                  <p className="text-foreground font-body text-lg mb-6">
+                    {event.description}
+                  </p>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="font-body">{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span className="font-body">{event.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span className="font-body">{event.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Users className="w-5 h-5 text-primary" />
+                      <span className="font-body">{event.attendees} Expected</span>
+                    </div>
+                  </div>
+
+                  <CyberButton variant="primary" size="lg">
+                    Register Now
+                    <ArrowRight className="inline-block ml-2 w-5 h-5" />
+                  </CyberButton>
+                </div>
+              </div>
+            </GlassCard>
+          </div>
+        ))}
+
+        {/* Upcoming Events Grid */}
+        <div className="mb-20">
+          <h3 className="font-display text-2xl font-bold text-foreground mb-8">
+            <span className="text-secondary text-glow-violet">UPCOMING</span> EVENTS
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {upcomingEvents.filter((e) => !e.featured).map((event, index) => (
+              <GlassCard
+                key={event.title}
+                hover3D
+                glowColor={index % 2 === 0 ? "cyan" : "violet"}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-display uppercase ${
+                      event.type === "Competition"
+                        ? "bg-primary/20 text-primary"
+                        : event.type === "Workshop"
+                        ? "bg-secondary/20 text-secondary"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {event.type}
+                  </span>
+                  <span className="text-sm text-muted-foreground font-body">
+                    {event.attendees} spots
+                  </span>
+                </div>
+
+                <h4 className="font-display text-xl font-bold text-foreground mb-3">
+                  {event.title}
+                </h4>
+
+                <p className="text-muted-foreground font-body text-sm mb-4">
+                  {event.description}
+                </p>
+
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4 text-primary" />
+                    <span>{event.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span>{event.location}</span>
+                  </div>
+                </div>
+
+                <CyberButton variant="outline" size="sm" className="w-full">
+                  Learn More
+                </CyberButton>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+
+        {/* Past Events */}
+        <div>
+          <h3 className="font-display text-2xl font-bold text-foreground mb-8">
+            <span className="text-primary text-glow-cyan">ARCHIVE</span> — Past Events
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {pastEvents.map((event, index) => (
+              <GlassCard key={event.title} hover3D={false} className="opacity-70 hover:opacity-100 transition-opacity">
+                <h4 className="font-display text-lg font-bold text-foreground mb-2">
+                  {event.title}
+                </h4>
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  <span>{event.date}</span>
+                  <span>{event.attendees} attended</span>
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Events;

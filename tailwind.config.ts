@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["Electrolize", "sans-serif"],
+        body: ["Rajdhani", "sans-serif"],
+        mono: ["Inconsolata", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +62,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        cyber: {
+          cyan: "hsl(var(--cyber-cyan))",
+          violet: "hsl(var(--cyber-violet))",
+          green: "hsl(var(--cyber-green))",
+          dark: "hsl(var(--cyber-dark))",
+          glass: "hsl(var(--cyber-glass))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +77,76 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(40px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.9)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "1" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "glitch": {
+          "0%, 100%": { transform: "translate(0)" },
+          "20%": { transform: "translate(-2px, 2px)" },
+          "40%": { transform: "translate(-2px, -2px)" },
+          "60%": { transform: "translate(2px, 2px)" },
+          "80%": { transform: "translate(2px, -2px)" },
+        },
+        "typing": {
+          "from": { width: "0" },
+          "to": { width: "100%" },
+        },
+        "blink": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        "rotate-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+        "scale-in": "scale-in 0.4s ease-out forwards",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "glitch": "glitch 0.3s ease-in-out",
+        "typing": "typing 3.5s steps(40, end)",
+        "blink": "blink 0.75s step-end infinite",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "cyber-gradient": "linear-gradient(135deg, hsl(var(--cyber-cyan)) 0%, hsl(var(--cyber-violet)) 100%)",
+        "cyber-gradient-subtle": "linear-gradient(135deg, hsl(var(--cyber-cyan) / 0.1) 0%, hsl(var(--cyber-violet) / 0.1) 100%)",
+      },
+      boxShadow: {
+        "glow-cyan": "0 0 20px hsl(var(--cyber-cyan) / 0.5), 0 0 40px hsl(var(--cyber-cyan) / 0.3)",
+        "glow-violet": "0 0 20px hsl(var(--cyber-violet) / 0.5), 0 0 40px hsl(var(--cyber-violet) / 0.3)",
+        "glow-cyan-lg": "0 0 30px hsl(var(--cyber-cyan) / 0.6), 0 0 60px hsl(var(--cyber-cyan) / 0.4)",
+        "glow-violet-lg": "0 0 30px hsl(var(--cyber-violet) / 0.6), 0 0 60px hsl(var(--cyber-violet) / 0.4)",
       },
     },
   },

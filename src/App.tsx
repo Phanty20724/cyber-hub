@@ -3,7 +3,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import QuantumField from "@/components/QuantumField";
+import Navbar from "@/components/Navbar";
 import Index from "./pages/Index";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import Ideas from "./pages/Ideas";
+import Executive from "./pages/Executive";
+import Projects from "./pages/Projects";
+import Join from "./pages/Join";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -14,9 +22,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <QuantumField />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/ideas" element={<Ideas />} />
+          <Route path="/executive" element={<Executive />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/join" element={<Join />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
