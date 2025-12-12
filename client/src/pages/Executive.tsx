@@ -1,12 +1,34 @@
 import { useState } from "react";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, X } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+interface Executive {
+  name: string;
+  role: string;
+  title: string;
+  bio: string;
+  image: string;
+  isPresident: boolean;
+  socials: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+    email: string;
+  };
+}
 
 const Executive = () => {
   const [activeYear, setActiveYear] = useState<"2025-26" | "2024-25">("2025-26");
+  const [selectedMember, setSelectedMember] = useState<Executive | null>(null);
 
-  const executives2025 = [
+  const executives2025: Executive[] = [
     {
       name: "Saad Bin Tofayel",
       role: "President",
@@ -149,7 +171,7 @@ const Executive = () => {
     },
   ];
 
-  const executives2024 = [
+  const executives2024: Executive[] = [
     {
       name: "Ahmed Abdur Rafi",
       role: "President",
@@ -358,131 +380,206 @@ const Executive = () => {
         {/* President Card - Featured */}
         {president && (
           <div className="max-w-2xl mx-auto mb-16">
-            <GlassCard
-              hover3D
-              glowColor="violet"
-              className="border-secondary/50 relative overflow-hidden"
+            <div 
+              onClick={() => setSelectedMember(president)}
+              className="cursor-pointer"
             >
-              <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/20 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+              <GlassCard
+                hover3D
+                glowColor="violet"
+                className="border-secondary/50 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/20 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
 
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 py-4">
-                {/* Avatar */}
-                <div className="relative">
-                  <div className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-secondary shadow-glow-violet-lg">
-                    <img
-                      src={president.image}
-                      alt={president.name}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 py-4">
+                  {/* Avatar */}
+                  <div className="relative">
+                    <div className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-secondary shadow-glow-violet-lg">
+                      <img
+                        src={president.image}
+                        alt={president.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 md:px-4 py-1 rounded-full bg-secondary text-secondary-foreground font-display text-[10px] md:text-xs uppercase tracking-wider whitespace-nowrap">
+                      {president.role}
+                    </div>
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 md:px-4 py-1 rounded-full bg-secondary text-secondary-foreground font-display text-[10px] md:text-xs uppercase tracking-wider whitespace-nowrap">
-                    {president.role}
+
+                  {/* Info */}
+                  <div className="text-center md:text-left flex-1">
+                    <span className="inline-block px-3 py-1 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-xs uppercase tracking-wider mb-2 md:mb-3">
+                      Leadership
+                    </span>
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-secondary text-glow-violet-strong mb-1">
+                      {president.name}
+                    </h2>
+                    <p className="text-primary font-display text-base md:text-lg mb-3 md:mb-4">{president.role}</p>
+                    <p className="text-muted-foreground font-body text-sm md:text-base mb-4 md:mb-6">{president.bio}</p>
+
+                    <div className="flex justify-center md:justify-start gap-4">
+                      {[
+                        { icon: Github, href: president.socials.github, name: "github" },
+                        { icon: Linkedin, href: president.socials.linkedin, name: "linkedin" },
+                        { icon: Twitter, href: president.socials.twitter, name: "twitter" },
+                        { icon: Mail, href: `mailto:${president.socials.email}`, name: "email" },
+                      ].map(({ icon: Icon, href, name }) => (
+                        <a
+                          key={name}
+                          href={href}
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet transition-all duration-300"
+                        >
+                          <Icon className="w-5 h-5" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                {/* Info */}
-                <div className="text-center md:text-left flex-1">
-                  <span className="inline-block px-3 py-1 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-xs uppercase tracking-wider mb-2 md:mb-3">
-                    Leadership
-                  </span>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold text-secondary text-glow-violet-strong mb-1">
-                    {president.name}
-                  </h2>
-                  <p className="text-primary font-display text-base md:text-lg mb-3 md:mb-4">{president.role}</p>
-                  <p className="text-muted-foreground font-body text-sm md:text-base mb-4 md:mb-6">{president.bio}</p>
-
-                  <div className="flex justify-center md:justify-start gap-4">
-                    {[
-                      { icon: Github, href: president.socials.github, name: "github" },
-                      { icon: Linkedin, href: president.socials.linkedin, name: "linkedin" },
-                      { icon: Twitter, href: president.socials.twitter, name: "twitter" },
-                      { icon: Mail, href: `mailto:${president.socials.email}`, name: "email" },
-                    ].map(({ icon: Icon, href, name }) => (
-                      <a
-                        key={name}
-                        href={href}
-                        className="p-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet transition-all duration-300"
-                      >
-                        <Icon className="w-5 h-5" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
+              </GlassCard>
+            </div>
           </div>
         )}
 
         {/* Other Team Members */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {otherMembers.map((member, index) => (
-            <GlassCard
+            <div
               key={member.name + member.role}
-              hover3D
-              glowColor={index % 2 === 0 ? "cyan" : "violet"}
+              onClick={() => setSelectedMember(member)}
+              className="cursor-pointer"
             >
-              <div className="text-center">
-                {/* Avatar */}
-                <div className="relative inline-block mb-4">
-                  <div
-                    className={`w-24 h-24 rounded-full overflow-hidden border-2 ${
-                      index % 2 === 0
-                        ? "border-primary/50 hover:shadow-glow-cyan"
-                        : "border-secondary/50 hover:shadow-glow-violet"
-                    } transition-all duration-300`}
+              <GlassCard
+                hover3D
+                glowColor={index % 2 === 0 ? "cyan" : "violet"}
+              >
+                <div className="text-center">
+                  {/* Avatar */}
+                  <div className="relative inline-block mb-4">
+                    <div
+                      className={`w-24 h-24 rounded-full overflow-hidden border-2 ${
+                        index % 2 === 0
+                          ? "border-primary/50 hover:shadow-glow-cyan"
+                          : "border-secondary/50 hover:shadow-glow-violet"
+                      } transition-all duration-300`}
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <h3 className="font-display text-xl font-bold text-foreground mb-1">
+                    {member.name}
+                  </h3>
+                  <p
+                    className={`font-display text-sm mb-1 ${
+                      index % 2 === 0 ? "text-primary" : "text-secondary"
+                    }`}
                   >
+                    {member.role}
+                  </p>
+                  <p className="text-muted-foreground font-body text-xs mb-4">
+                    {member.title}
+                  </p>
+                  <p className="text-muted-foreground font-body text-sm mb-6">
+                    {member.bio}
+                  </p>
+
+                  {/* Socials */}
+                  <div className="flex justify-center gap-3">
+                    {[
+                      { icon: Github, href: member.socials.github, name: "github" },
+                      { icon: Linkedin, href: member.socials.linkedin, name: "linkedin" },
+                      { icon: Mail, href: `mailto:${member.socials.email}`, name: "email" },
+                    ].map(({ icon: Icon, href, name }) => (
+                      <a
+                        key={name}
+                        href={href}
+                        onClick={(e) => e.stopPropagation()}
+                        className={`p-2 rounded-lg transition-all duration-300 ${
+                          index % 2 === 0
+                            ? "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-glow-cyan"
+                            : "bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet"
+                        }`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </GlassCard>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Member Detail Popup */}
+      <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
+        <DialogContent className="max-w-3xl bg-background/95 backdrop-blur-xl border-primary/30">
+          {selectedMember && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="sr-only">{selectedMember.name}</DialogTitle>
+              </DialogHeader>
+              <div className="flex flex-col md:flex-row gap-6 p-2">
+                {/* Large Photo */}
+                <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-secondary/50 shadow-glow-violet-lg">
                     <img
-                      src={member.image}
-                      alt={member.name}
+                      src={selectedMember.image}
+                      alt={selectedMember.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
 
-                {/* Info */}
-                <h3 className="font-display text-xl font-bold text-foreground mb-1">
-                  {member.name}
-                </h3>
-                <p
-                  className={`font-display text-sm mb-1 ${
-                    index % 2 === 0 ? "text-primary" : "text-secondary"
-                  }`}
-                >
-                  {member.role}
-                </p>
-                <p className="text-muted-foreground font-body text-xs mb-4">
-                  {member.title}
-                </p>
-                <p className="text-muted-foreground font-body text-sm mb-6">
-                  {member.bio}
-                </p>
+                {/* Details */}
+                <div className="flex-1 text-center md:text-left">
+                  <span className="inline-block px-4 py-2 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-sm uppercase tracking-wider mb-4">
+                    {selectedMember.title}
+                  </span>
+                  
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary text-glow-violet-strong mb-2">
+                    {selectedMember.name}
+                  </h2>
+                  
+                  <p className="text-primary font-display text-xl md:text-2xl mb-4">
+                    {selectedMember.role}
+                  </p>
+                  
+                  <p className="text-muted-foreground font-body text-base md:text-lg mb-8 leading-relaxed">
+                    {selectedMember.bio}
+                  </p>
 
-                {/* Socials */}
-                <div className="flex justify-center gap-3">
-                  {[
-                    { icon: Github, href: member.socials.github, name: "github" },
-                    { icon: Linkedin, href: member.socials.linkedin, name: "linkedin" },
-                    { icon: Mail, href: `mailto:${member.socials.email}`, name: "email" },
-                  ].map(({ icon: Icon, href, name }) => (
-                    <a
-                      key={name}
-                      href={href}
-                      className={`p-2 rounded-lg transition-all duration-300 ${
-                        index % 2 === 0
-                          ? "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-glow-cyan"
-                          : "bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet"
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  ))}
+                  {/* Social Links */}
+                  <div className="flex justify-center md:justify-start gap-4">
+                    {[
+                      { icon: Github, href: selectedMember.socials.github, name: "GitHub", label: "github" },
+                      { icon: Linkedin, href: selectedMember.socials.linkedin, name: "LinkedIn", label: "linkedin" },
+                      { icon: Twitter, href: selectedMember.socials.twitter, name: "Twitter", label: "twitter" },
+                      { icon: Mail, href: `mailto:${selectedMember.socials.email}`, name: "Email", label: "email" },
+                    ].map(({ icon: Icon, href, name, label }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet transition-all duration-300"
+                      >
+                        <Icon className="w-5 h-5" />
+                        <span className="font-display text-sm hidden sm:inline">{name}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </GlassCard>
-          ))}
-        </div>
-      </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
