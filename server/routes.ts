@@ -92,6 +92,72 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/projects", async (_req, res) => {
+    try {
+      const { rows } = await pool.query("SELECT * FROM projects ORDER BY id DESC");
+      res.json(rows);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch projects" });
+    }
+  });
+
+  app.get("/api/projects/:id", async (req, res) => {
+    try {
+      const { rows } = await pool.query("SELECT * FROM projects WHERE id = $1", [req.params.id]);
+      if (rows.length === 0) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+      res.json(rows[0]);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch project" });
+    }
+  });
+
+  app.post("/api/projects", requireAdmin, async (req, res) => {
+    try {
+      const { title, description, tech, stars, forks, featured, category, github_url, demo_url } = req.body;
+      const techArray = Array.isArray(tech) ? tech : (tech ? tech.split(',').map((t: string) => t.trim()) : []);
+      const { rows } = await pool.query(
+        `INSERT INTO projects (title, description, tech, stars, forks, featured, category, github_url, demo_url) 
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+        [title, description, techArray, stars || 0, forks || 0, featured || false, category || 'Web Dev', github_url, demo_url]
+      );
+      res.json(rows[0]);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create project" });
+    }
+  });
+
+  app.put("/api/projects/:id", requireAdmin, async (req, res) => {
+    try {
+      const { title, description, tech, stars, forks, featured, category, github_url, demo_url } = req.body;
+      const techArray = Array.isArray(tech) ? tech : (tech ? tech.split(',').map((t: string) => t.trim()) : []);
+      const { rows } = await pool.query(
+        `UPDATE projects SET title = $1, description = $2, tech = $3, stars = $4, forks = $5, 
+         featured = $6, category = $7, github_url = $8, demo_url = $9 WHERE id = $10 RETURNING *`,
+        [title, description, techArray, stars, forks, featured, category, github_url, demo_url, req.params.id]
+      );
+      if (rows.length === 0) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+      res.json(rows[0]);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update project" });
+    }
+  });
+
+  app.delete("/api/projects/:id", requireAdmin, async (req, res) => {
+    try {
+      const { rowCount } = await pool.query("DELETE FROM projects WHERE id = $1", [req.params.id]);
+      if (rowCount === 0) {
+        return res.status(404).json({ message: "Project not found" });
+      }
+      res.json({ message: "Project deleted" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete project" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
