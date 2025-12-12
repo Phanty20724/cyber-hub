@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 
 const Executive = () => {
-  const executives = [
+  const [activeYear, setActiveYear] = useState<"2025-26" | "2024-25">("2025-26");
+
+  const executives2025 = [
     {
       name: "Saad Bin Tofayel",
       role: "President",
@@ -132,6 +135,178 @@ const Executive = () => {
     },
   ];
 
+  const executives2024 = [
+    {
+      name: "Ahmed Abdur Rafi",
+      role: "President",
+      title: "Executive Committee 2024-25",
+      bio: "Leading SCPSC Cyber Hub with vision and dedication.",
+      image: "/executives-2024-25/president.png",
+      isPresident: true,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Saad Bin Tofayel",
+      role: "General Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Managing club operations and coordination.",
+      image: "/executives-2024-25/general-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Alif Al-Arafat",
+      role: "Vice President",
+      title: "Executive Committee 2024-25",
+      bio: "Supporting club leadership and initiatives.",
+      image: "/executives-2024-25/vice-president.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Ahnaf Islam",
+      role: "Organizing Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Planning and organizing club events.",
+      image: "/executives-2024-25/organizing-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Mahadi Mahmud",
+      role: "Program Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Managing programs and workshops.",
+      image: "/executives-2024-25/program-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Jarin Mobashira Feema",
+      role: "Office Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Handling administrative tasks.",
+      image: "/executives-2024-25/office-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Safwan Baari",
+      role: "Joint Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Coordinating club activities.",
+      image: "/executives-2024-25/joint-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Mounota Binte Mostafiz",
+      role: "Publicity Secretary",
+      title: "Executive Committee 2024-25",
+      bio: "Managing publicity and outreach.",
+      image: "/executives-2024-25/publicity-secretary.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Tahsina Azad Ariba",
+      role: "Treasurer",
+      title: "Executive Committee 2024-25",
+      bio: "Managing club finances.",
+      image: "/executives-2024-25/treasurer.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Maisa Tabassum",
+      role: "Executive Member",
+      title: "Executive Committee 2024-25",
+      bio: "Supporting club activities.",
+      image: "/executives-2024-25/executive-1.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Tahsin Abid",
+      role: "Executive Member",
+      title: "Executive Committee 2024-25",
+      bio: "Supporting club initiatives.",
+      image: "/executives-2024-25/executive-2.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+    {
+      name: "Abidur Rahman Ifrad",
+      role: "Executive Member",
+      title: "Executive Committee 2024-25",
+      bio: "Supporting club activities.",
+      image: "/executives-2024-25/executive-3.png",
+      isPresident: false,
+      socials: {
+        github: "#",
+        linkedin: "#",
+        twitter: "#",
+        email: "cyberhub@scpsc.edu",
+      },
+    },
+  ];
+
+  const executives = activeYear === "2025-26" ? executives2025 : executives2024;
   const president = executives.find((e) => e.isPresident);
   const otherMembers = executives.filter((e) => !e.isPresident);
 
@@ -139,9 +314,32 @@ const Executive = () => {
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-6">
         <SectionTitle
-          title="EXECUTIVE COMMITTEE 2025-26"
+          title="EXECUTIVE COMMITTEE"
           subtitle="Meet the team behind SCPSC Cyber Hub"
         />
+
+        <div className="flex justify-center gap-4 mb-12">
+          <button
+            onClick={() => setActiveYear("2025-26")}
+            className={`px-6 py-3 rounded-lg font-display text-sm uppercase tracking-wider transition-all duration-300 ${
+              activeYear === "2025-26"
+                ? "bg-primary text-primary-foreground shadow-glow-cyan"
+                : "bg-primary/10 text-primary hover:bg-primary/20 border border-primary/30"
+            }`}
+          >
+            2025-26
+          </button>
+          <button
+            onClick={() => setActiveYear("2024-25")}
+            className={`px-6 py-3 rounded-lg font-display text-sm uppercase tracking-wider transition-all duration-300 ${
+              activeYear === "2024-25"
+                ? "bg-secondary text-secondary-foreground shadow-glow-violet"
+                : "bg-secondary/10 text-secondary hover:bg-secondary/20 border border-secondary/30"
+            }`}
+          >
+            2024-25
+          </button>
+        </div>
 
         {/* President Card - Featured */}
         {president && (
@@ -206,7 +404,7 @@ const Executive = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {otherMembers.map((member, index) => (
             <GlassCard
-              key={member.name}
+              key={member.name + member.role}
               hover3D
               glowColor={index % 2 === 0 ? "cyan" : "violet"}
             >
