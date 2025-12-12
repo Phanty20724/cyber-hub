@@ -546,45 +546,22 @@ const Executive = () => {
               subtitle="Our class representatives spreading the tech spirit"
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {representatives.map((rep, index) => (
-                <GlassCard
+                <div
                   key={rep.name}
-                  hover3D
-                  glowColor={index % 2 === 0 ? "cyan" : "violet"}
+                  className={`rounded-xl overflow-hidden border-2 ${
+                    index % 2 === 0
+                      ? "border-primary/30 hover:shadow-glow-cyan"
+                      : "border-secondary/30 hover:shadow-glow-violet"
+                  } transition-all duration-300 hover:scale-[1.02]`}
                 >
-                  <div className="text-center">
-                    <div className="relative inline-block mb-4">
-                      <div
-                        className={`w-28 h-28 rounded-full overflow-hidden border-2 ${
-                          index % 2 === 0
-                            ? "border-primary/50 shadow-glow-cyan"
-                            : "border-secondary/50 shadow-glow-violet"
-                        } transition-all duration-300`}
-                      >
-                        <img
-                          src={rep.image}
-                          alt={rep.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-
-                    <h3 className="font-display text-xl font-bold text-foreground mb-1">
-                      {rep.name}
-                    </h3>
-                    <p
-                      className={`font-display text-sm mb-1 ${
-                        index % 2 === 0 ? "text-primary" : "text-secondary"
-                      }`}
-                    >
-                      {rep.role}
-                    </p>
-                    <p className="text-muted-foreground font-body text-xs">
-                      {rep.classLevel}
-                    </p>
-                  </div>
-                </GlassCard>
+                  <img
+                    src={rep.image}
+                    alt={rep.name}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               ))}
             </div>
           </div>
