@@ -4,6 +4,7 @@ import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
 import SEO from "@/components/SEO";
+import { useToast } from "@/hooks/use-toast";
 
 const Join = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,9 @@ const Join = () => {
     experience: "",
     motivation: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const benefits = [
     {
@@ -46,10 +50,24 @@ const Join = () => {
     { id: "general", name: "General / Exploring" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) throw new Error("Failed to submit");
+      setIsSubmitted(true);
+      toast({ title: "Application submitted successfully!" });
+      setFormData({ name: "", email: "", track: "", experience: "", motivation: "" });
+    } catch (error) {
+      toast({ title: "Failed to submit application", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -191,9 +209,9 @@ const Join = () => {
                   />
                 </div>
 
-                <CyberButton variant="primary" size="lg" type="submit" className="w-full">
-                  Submit Application
-                  <ArrowRight className="inline-block ml-2 w-5 h-5" />
+                <CyberButton variant="primary" size="lg" type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
+                  {!isSubmitting && <ArrowRight className="inline-block ml-2 w-5 h-5" />}
                 </CyberButton>
               </form>
             </GlassCard>

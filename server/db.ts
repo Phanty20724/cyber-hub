@@ -39,6 +39,19 @@ export async function initializeDatabase() {
       )
     `);
     
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS applications (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        track VARCHAR(100),
+        experience VARCHAR(50),
+        motivation TEXT,
+        status VARCHAR(20) DEFAULT 'pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     const { rows } = await client.query('SELECT COUNT(*) FROM events');
     if (parseInt(rows[0].count) === 0) {
       await client.query(`

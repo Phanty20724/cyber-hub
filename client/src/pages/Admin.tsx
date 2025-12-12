@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Lock, Plus, Edit, Trash2, Save, X, LogOut, Calendar, FolderOpen } from "lucide-react";
+import { Lock, Plus, Edit, Trash2, Save, X, LogOut, Calendar, FolderOpen, Users, CheckCircle, XCircle, Clock } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import CyberButton from "@/components/CyberButton";
 import { Input } from "@/components/ui/input";
@@ -35,6 +35,17 @@ interface Project {
   category: string;
   github_url: string | null;
   demo_url: string | null;
+}
+
+interface Application {
+  id: number;
+  name: string;
+  email: string;
+  track: string | null;
+  experience: string | null;
+  motivation: string | null;
+  status: string;
+  created_at: string;
 }
 
 const Admin = () => {
@@ -92,6 +103,17 @@ const Admin = () => {
     queryKey: ["projects"],
     queryFn: async () => {
       const res = await fetch("/api/projects");
+      return res.json();
+    },
+    enabled: isAuthenticated,
+  });
+
+  const { data: applications = [], isLoading: applicationsLoading } = useQuery<Application[]>({
+    queryKey: ["applications"],
+    queryFn: async () => {
+      const res = await fetch("/api/applications", {
+        headers: { "Authorization": `Bearer ${token}` },
+      });
       return res.json();
     },
     enabled: isAuthenticated,
@@ -233,6 +255,40 @@ const Admin = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["projects"] });
       toast({ title: "Project deleted" });
+    },
+  });
+
+  const updateApplicationMutation = useMutation({
+    mutationFn: async ({ id, status }: { id: number; status: string }) => {
+      const res = await fetch(`/api/applications/${id}`, {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status }),
+      });
+      if (!res.ok) throw new Error("Failed to update application");
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["applications"] });
+      toast({ title: "Application updated" });
+    },
+  });
+
+  const deleteApplicationMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const res = await fetch(`/api/applications/${id}`, {
+        method: "DELETE",
+        headers: { "Authorization": `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error("Failed to delete application");
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["applications"] });
+      toast({ title: "Application deleted" });
     },
   });
 
@@ -554,6 +610,9 @@ const Admin = () => {
             <TabsTrigger value="projects" className="flex items-center gap-2">
               <FolderOpen className="w-4 h-4" /> Projects
             </TabsTrigger>
+            <TabsTrigger value="applications" className="flex items-center gap-2">
+              <Users className="w-4 h-4" /> Applications
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="events">
@@ -666,6 +725,131 @@ const Admin = () => {
                   <p className="text-muted-foreground text-sm">No projects</p>
                 ) : (
                   otherProjects.map((p) => <ProjectRow key={p.id} project={p} />)
+                )}
+              </GlassCard>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="applications">
+            {applicationsLoading && <p className="text-muted-foreground">Loading applications...</p>}
+
+            <div className="space-y-8">
+              <GlassCard>
+                <h2 className="font-display text-xl font-bold text-yellow-500 mb-4 flex items-center gap-2">
+                  <Clock className="w-5 h-5" /> Pending Applications ({applications.filter(a => a.status === 'pending').length})
+                </h2>
+                {applications.filter(a => a.status === 'pending').length === 0 ? (
+                  <p className="text-muted-foreground text-sm">No pending applications</p>
+                ) : (
+                  applications.filter(a => a.status === 'pending').map((app) => (
+                    <div key={app.id} className="p-4 border-b border-border last:border-0">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="font-display text-foreground font-semibold">{app.name}</div>
+                          <div className="text-sm text-muted-foreground">{app.email}</div>
+                          {app.track && <div className="text-sm text-primary mt-1">Track: {app.track}</div>}
+                          {app.experience && <div className="text-sm text-muted-foreground mt-1">Experience: {app.experience}</div>}
+                          {app.motivation && <div className="text-sm text-muted-foreground mt-2 italic">"{app.motivation}"</div>}
+                          <div className="text-xs text-muted-foreground mt-2">
+                            Submitted: {new Date(app.created_at).toLocaleDateString()}
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <button 
+                            onClick={() => updateApplicationMutation.mutate({ id: app.id, status: 'approved' })}
+                            className="p-2 text-green-500 hover:bg-green-500/10 rounded"
+                            title="Approve"
+                          >
+                            <CheckCircle className="w-5 h-5" />
+                          </button>
+                          <button 
+                            onClick={() => updateApplicationMutation.mutate({ id: app.id, status: 'rejected' })}
+                            className="p-2 text-red-500 hover:bg-red-500/10 rounded"
+                            title="Reject"
+                          >
+                            <XCircle className="w-5 h-5" />
+                          </button>
+                          <button 
+                            onClick={() => deleteApplicationMutation.mutate(app.id)}
+                            className="p-2 text-destructive hover:bg-destructive/10 rounded"
+                            title="Delete"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </GlassCard>
+
+              <GlassCard>
+                <h2 className="font-display text-xl font-bold text-green-500 mb-4 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" /> Approved ({applications.filter(a => a.status === 'approved').length})
+                </h2>
+                {applications.filter(a => a.status === 'approved').length === 0 ? (
+                  <p className="text-muted-foreground text-sm">No approved applications</p>
+                ) : (
+                  applications.filter(a => a.status === 'approved').map((app) => (
+                    <div key={app.id} className="flex items-center justify-between p-3 border-b border-border last:border-0">
+                      <div className="flex-1">
+                        <span className="font-display text-foreground">{app.name}</span>
+                        <span className="text-muted-foreground text-sm ml-2">({app.email})</span>
+                        {app.track && <span className="ml-2 px-2 py-0.5 text-xs bg-primary/20 text-primary rounded">{app.track}</span>}
+                      </div>
+                      <div className="flex gap-2">
+                        <button 
+                          onClick={() => updateApplicationMutation.mutate({ id: app.id, status: 'pending' })}
+                          className="p-2 text-yellow-500 hover:bg-yellow-500/10 rounded"
+                          title="Move to pending"
+                        >
+                          <Clock className="w-4 h-4" />
+                        </button>
+                        <button 
+                          onClick={() => deleteApplicationMutation.mutate(app.id)}
+                          className="p-2 text-destructive hover:bg-destructive/10 rounded"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </GlassCard>
+
+              <GlassCard>
+                <h2 className="font-display text-xl font-bold text-red-500 mb-4 flex items-center gap-2">
+                  <XCircle className="w-5 h-5" /> Rejected ({applications.filter(a => a.status === 'rejected').length})
+                </h2>
+                {applications.filter(a => a.status === 'rejected').length === 0 ? (
+                  <p className="text-muted-foreground text-sm">No rejected applications</p>
+                ) : (
+                  applications.filter(a => a.status === 'rejected').map((app) => (
+                    <div key={app.id} className="flex items-center justify-between p-3 border-b border-border last:border-0">
+                      <div className="flex-1">
+                        <span className="font-display text-foreground">{app.name}</span>
+                        <span className="text-muted-foreground text-sm ml-2">({app.email})</span>
+                        {app.track && <span className="ml-2 px-2 py-0.5 text-xs bg-muted text-muted-foreground rounded">{app.track}</span>}
+                      </div>
+                      <div className="flex gap-2">
+                        <button 
+                          onClick={() => updateApplicationMutation.mutate({ id: app.id, status: 'pending' })}
+                          className="p-2 text-yellow-500 hover:bg-yellow-500/10 rounded"
+                          title="Move to pending"
+                        >
+                          <Clock className="w-4 h-4" />
+                        </button>
+                        <button 
+                          onClick={() => deleteApplicationMutation.mutate(app.id)}
+                          className="p-2 text-destructive hover:bg-destructive/10 rounded"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  ))
                 )}
               </GlassCard>
             </div>
