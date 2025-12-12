@@ -520,16 +520,16 @@ const Executive = () => {
 
       {/* Member Detail Popup */}
       <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
-        <DialogContent className="max-w-3xl bg-background/95 backdrop-blur-xl border-primary/30">
+        <DialogContent className="max-w-2xl bg-background/95 backdrop-blur-xl border-primary/30 overflow-hidden">
           {selectedMember && (
             <>
               <DialogHeader>
                 <DialogTitle className="sr-only">{selectedMember.name}</DialogTitle>
               </DialogHeader>
-              <div className="flex flex-col md:flex-row gap-6 p-2">
+              <div className="flex flex-col md:flex-row gap-4 p-2">
                 {/* Large Photo */}
                 <div className="flex-shrink-0 mx-auto md:mx-0">
-                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-secondary/50 shadow-glow-violet-lg">
+                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-4 border-secondary/50 shadow-glow-violet-lg">
                     <img
                       src={selectedMember.image}
                       alt={selectedMember.name}
@@ -539,38 +539,37 @@ const Executive = () => {
                 </div>
 
                 {/* Details */}
-                <div className="flex-1 text-center md:text-left">
-                  <span className="inline-block px-4 py-2 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-sm uppercase tracking-wider mb-4">
+                <div className="flex-1 text-center md:text-left overflow-hidden">
+                  <span className="inline-block px-3 py-1 rounded-full border border-secondary/50 bg-secondary/10 text-secondary font-display text-xs uppercase tracking-wider mb-3">
                     {selectedMember.title}
                   </span>
                   
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary text-glow-violet-strong mb-2">
+                  <h2 className="font-display text-2xl md:text-3xl font-bold text-secondary text-glow-violet-strong mb-1 break-words">
                     {selectedMember.name}
                   </h2>
                   
-                  <p className="text-primary font-display text-xl md:text-2xl mb-4">
+                  <p className="text-primary font-display text-lg md:text-xl mb-3">
                     {selectedMember.role}
                   </p>
                   
-                  <p className="text-muted-foreground font-body text-base md:text-lg mb-8 leading-relaxed">
+                  <p className="text-muted-foreground font-body text-sm md:text-base mb-4 leading-relaxed break-words">
                     {selectedMember.bio}
                   </p>
 
                   {/* Social Links */}
-                  <div className="flex justify-center md:justify-start gap-4">
+                  <div className="flex justify-center md:justify-start gap-3 flex-wrap">
                     {[
                       { icon: Github, href: selectedMember.socials.github, name: "GitHub", label: "github" },
-                      { icon: Linkedin, href: selectedMember.socials.linkedin, name: "LinkedIn", label: "linkedin" },
                       { icon: Twitter, href: selectedMember.socials.twitter, name: "Twitter", label: "twitter" },
                       { icon: Mail, href: `mailto:${selectedMember.socials.email}`, name: "Email", label: "email" },
                     ].map(({ icon: Icon, href, name, label }) => (
                       <a
                         key={label}
                         href={href}
-                        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet transition-all duration-300"
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/10 text-secondary hover:bg-secondary/20 hover:shadow-glow-violet transition-all duration-300"
                       >
-                        <Icon className="w-5 h-5" />
-                        <span className="font-display text-sm hidden sm:inline">{name}</span>
+                        <Icon className="w-4 h-4" />
+                        <span className="font-display text-xs">{name}</span>
                       </a>
                     ))}
                   </div>
