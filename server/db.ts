@@ -56,7 +56,7 @@ export async function initializeDatabase() {
     if (parseInt(rows[0].count) === 0) {
       await client.query(`
         INSERT INTO events (title, date, time, location, attendees, description, type, status, featured) VALUES
-        ('PORTFOLIATHON INTRA 1.0', 'Jan 15-17, 2025', '48 Hours', 'SCPSC Campus', '100+', 'Our flagship portfolio competition. Build, innovate, and compete for exciting prizes.', 'Competition', 'upcoming', true),
+        ('PORTFOLIATHON INTRA 1.0', 'Dec 21-24, 2025', '72 Hours', 'Devpost', '100+', 'Our flagship portfolio competition. Build, innovate, and compete for exciting prizes.', 'Competition', 'upcoming', true),
         ('WEB DEV WORKSHOP: React Fundamentals', 'Jan 22, 2025', '10:00 AM - 4:00 PM', 'Tech Lab', '50', 'Learn React from scratch and build your first interactive web application.', 'Workshop', 'upcoming', false),
         ('AI/ML BOOTCAMP', 'Feb 01, 2025', 'Full Day', 'Online', '80+', 'Hands-on machine learning bootcamp covering Python, TensorFlow, and real-world projects.', 'Workshop', 'upcoming', false),
         ('GRAPHICS DESIGN MASTERCLASS', 'Feb 10, 2025', '2:00 PM - 6:00 PM', 'Design Studio', '40', 'Master Adobe Photoshop and Illustrator with industry-standard design techniques.', 'Workshop', 'upcoming', false),

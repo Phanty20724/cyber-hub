@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
@@ -100,10 +101,12 @@ const Events = () => {
                     )}
                   </div>
 
-                  <CyberButton variant="primary" size="lg">
-                    Register Now
-                    <ArrowRight className="inline-block ml-2 w-5 h-5" />
-                  </CyberButton>
+                  <Link to="/portfoliathon">
+                    <CyberButton variant="primary" size="lg">
+                      Register Now
+                      <ArrowRight className="inline-block ml-2 w-5 h-5" />
+                    </CyberButton>
+                  </Link>
                 </div>
                 <div className="lg:w-80 flex-shrink-0">
                   <img 
