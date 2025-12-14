@@ -32,68 +32,82 @@ const Portfoliathon = () => {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-start mb-20">
-            <div className="lg:w-1/2">
+          {/* Event Poster and Details Section */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16">
+            <div className="w-full lg:w-1/2">
               <img 
                 src="/portfoliathon.jpg" 
                 alt="PORTFOLIATHON INTRA 1.0" 
-                className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl shadow-primary/20 mb-8"
+                className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl shadow-primary/20"
               />
-              
-              <GlassCard className="p-6">
-                <h3 className="font-display text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-primary" />
+            </div>
+            
+            <div className="w-full lg:w-1/2">
+              <GlassCard className="p-6 md:p-8">
+                <h3 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <Sparkles className="w-6 h-6 text-primary" />
                   Event Details
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="flex items-center gap-4 text-muted-foreground">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-6 h-6 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground/70">Date</p>
-                      <span className="font-body text-foreground">Dec 21-24, 2025</span>
+                      <p className="text-xs text-muted-foreground/70 uppercase tracking-wider">Date</p>
+                      <span className="font-body text-foreground font-medium">Dec 21-24, 2025</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+                  <div className="flex items-center gap-4 text-muted-foreground">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground/70">Duration</p>
-                      <span className="font-body text-foreground">72 Hours</span>
+                      <p className="text-xs text-muted-foreground/70 uppercase tracking-wider">Duration</p>
+                      <span className="font-body text-foreground font-medium">72 Hours</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                  <div className="flex items-center gap-4 text-muted-foreground">
+                    <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-secondary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground/70">Platform</p>
-                      <span className="font-body text-foreground">Devpost</span>
+                      <p className="text-xs text-muted-foreground/70 uppercase tracking-wider">Platform</p>
+                      <span className="font-body text-foreground font-medium">Devpost</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <Users className="w-5 h-5 text-primary flex-shrink-0" />
+                  <div className="flex items-center gap-4 text-muted-foreground">
+                    <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                      <Users className="w-6 h-6 text-secondary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-muted-foreground/70">Participants</p>
-                      <span className="font-body text-foreground">100+ Expected</span>
+                      <p className="text-xs text-muted-foreground/70 uppercase tracking-wider">Participants</p>
+                      <span className="font-body text-foreground font-medium">100+ Expected</span>
                     </div>
                   </div>
                 </div>
               </GlassCard>
             </div>
+          </div>
 
-            <div className="lg:w-1/2">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-4">
-                  <Code2 className="w-8 h-8 text-primary" />
-                </div>
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-                  Register Now
-                </h2>
-                <p className="text-muted-foreground font-body text-sm">
-                  Secure your spot in PORTFOLIATHON INTRA 1.0
-                </p>
+          {/* Registration Form Section - Full Width Below */}
+          <div className="mb-20">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mb-6">
+                <Code2 className="w-10 h-10 text-primary" />
               </div>
-              <div className="w-full overflow-hidden rounded-lg">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+                Register <span className="text-primary text-glow-cyan">Now</span>
+              </h2>
+              <p className="text-muted-foreground font-body text-lg max-w-xl mx-auto">
+                Secure your spot in PORTFOLIATHON INTRA 1.0 and start your journey
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="w-full overflow-hidden rounded-2xl shadow-2xl">
                 <iframe 
                   src="https://docs.google.com/forms/d/e/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/viewform?embedded=true" 
-                  className="w-full min-h-[600px] sm:min-h-[800px] md:min-h-[1000px] lg:min-h-[1200px]"
+                  className="w-full min-h-[500px] sm:min-h-[700px] md:min-h-[900px] lg:min-h-[1100px]"
                   style={{ border: 'none', background: 'white' }}
                   title="Portfoliathon Registration Form"
                 >
