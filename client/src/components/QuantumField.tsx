@@ -20,12 +20,27 @@ const QuantumField = () => {
 
     let animationId: number;
     let particles: Particle[] = [];
-    const particleCount = 80;
-    const connectionDistance = 150;
+    
+    // Responsive values based on screen size
+    const getResponsiveValues = () => {
+      const isMobile = window.innerWidth < 768;
+      return {
+        particleCount: isMobile ? 30 : 80,
+        connectionDistance: isMobile ? 120 : 150,
+        gridSize: isMobile ? 100 : 60
+      };
+    };
+
+    let { particleCount, connectionDistance, gridSize } = getResponsiveValues();
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Update responsive values on resize
+      const values = getResponsiveValues();
+      particleCount = values.particleCount;
+      connectionDistance = values.connectionDistance;
+      gridSize = values.gridSize;
     };
 
     const createParticles = () => {
@@ -42,7 +57,6 @@ const QuantumField = () => {
     };
 
     const drawGrid = () => {
-      const gridSize = 60;
       const time = Date.now() * 0.0002;
 
       ctx.strokeStyle = "rgba(0, 240, 255, 0.03)";
