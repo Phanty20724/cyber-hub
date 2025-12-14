@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -21,14 +21,12 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <Terminal className="w-8 h-8 text-primary group-hover:text-glow-cyan transition-all duration-300" />
-              <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <span className="font-display text-2xl font-bold text-primary text-glow-cyan tracking-wider">
-              SCPSC CYBER HUB
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="/cyber-hub-logo.png" 
+              alt="SCPSC Cyber Hub" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
