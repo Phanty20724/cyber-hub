@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Clock, Users, ArrowRight, Trophy, Target, Zap } from "lucide-react";
+import FormfacadeEmbed from "@formfacade/embed-react";
 import GlassCard from "@/components/GlassCard";
 import CyberButton from "@/components/CyberButton";
 import Footer from "@/components/Footer";
@@ -102,20 +103,29 @@ const Portfoliathon = () => {
             </GlassCard>
           </div>
 
+          <GlassCard className="py-12 px-8 mb-16">
+            <h2 className="font-display text-3xl font-bold text-foreground mb-4 text-center">
+              <span className="text-primary text-glow-cyan">Register</span> Now
+            </h2>
+            <p className="text-muted-foreground font-body mb-8 max-w-xl mx-auto text-center">
+              Fill out the form below to register for PORTFOLIATHON INTRA 1.0
+            </p>
+            <div className="max-w-2xl mx-auto">
+              <FormfacadeEmbed
+                formFacadeURL="https://formfacade.com/include/108491804984156366057/form/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/classic.js/?div=ff-compose"
+                onSubmitForm={() => console.log('Form submitted')}
+              />
+            </div>
+          </GlassCard>
+
           <GlassCard className="text-center py-12 px-8 mb-16">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
               Ready to <span className="text-primary text-glow-cyan">Compete</span>?
             </h2>
             <p className="text-muted-foreground font-body mb-8 max-w-xl mx-auto">
-              Don't miss this opportunity to showcase your skills, learn from peers, and win exciting prizes. Register now on Devpost!
+              Don't miss this opportunity to showcase your skills, learn from peers, and win exciting prizes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://devpost.com" target="_blank" rel="noopener noreferrer">
-                <CyberButton variant="primary" size="lg">
-                  Register Now
-                  <ArrowRight className="inline-block ml-2 w-5 h-5" />
-                </CyberButton>
-              </a>
               <Link to="/events">
                 <CyberButton variant="outline" size="lg">
                   View All Events
