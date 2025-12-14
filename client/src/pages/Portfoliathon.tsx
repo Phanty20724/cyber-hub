@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Clock, Users, ArrowRight, Trophy, Target, Zap } from "lucide-react";
-import FormfacadeEmbed from "@formfacade/embed-react";
 import GlassCard from "@/components/GlassCard";
 import CyberButton from "@/components/CyberButton";
 import Footer from "@/components/Footer";
@@ -103,20 +102,32 @@ const Portfoliathon = () => {
             </GlassCard>
           </div>
 
-          <GlassCard className="py-12 px-8 mb-16">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-4 text-center">
-              <span className="text-primary text-glow-cyan">Register</span> Now
-            </h2>
-            <p className="text-muted-foreground font-body mb-8 max-w-xl mx-auto text-center">
-              Fill out the form below to register for PORTFOLIATHON INTRA 1.0
-            </p>
-            <div className="max-w-2xl mx-auto">
-              <FormfacadeEmbed
-                formFacadeURL="https://formfacade.com/include/108491804984156366057/form/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/classic.js/?div=ff-compose"
-                onSubmitForm={() => console.log('Form submitted')}
-              />
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                <span className="text-primary text-glow-cyan">Register</span> Now
+              </h2>
+              <p className="text-muted-foreground font-body max-w-xl mx-auto">
+                Fill out the form below to register for PORTFOLIATHON INTRA 1.0
+              </p>
             </div>
-          </GlassCard>
+            <div className="glass rounded-2xl border border-primary/30 p-4 md:p-8 max-w-3xl mx-auto">
+              <div className="relative w-full overflow-hidden rounded-xl bg-white">
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/viewform?embedded=true" 
+                  width="100%" 
+                  height="2573" 
+                  frameBorder="0" 
+                  marginHeight={0} 
+                  marginWidth={0}
+                  className="w-full"
+                  title="PORTFOLIATHON INTRA 1.0 Registration Form"
+                >
+                  Loading…
+                </iframe>
+              </div>
+            </div>
+          </div>
 
           <GlassCard className="text-center py-12 px-8 mb-16">
             <h2 className="font-display text-3xl font-bold text-foreground mb-4">
