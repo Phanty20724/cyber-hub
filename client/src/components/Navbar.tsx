@@ -21,13 +21,13 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 md:gap-3 group">
+          <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
             <img 
               src="/logo.png" 
               alt="SCPSC Cyber Hub" 
-              className="h-8 md:h-10 w-auto object-contain"
+              className="h-10 md:h-12 w-10 md:w-12 object-contain shrink-0"
             />
-            <span className="font-display text-sm md:text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+            <span className="font-display text-sm md:text-lg font-bold text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
               SCPSC Cyber Hub
             </span>
           </Link>
