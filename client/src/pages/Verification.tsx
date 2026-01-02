@@ -145,7 +145,8 @@ const Verification = () => {
     <div className="min-h-screen pt-24 pb-12 px-4 bg-background">
       <SEO 
         title={data ? `${data.name} - Certificate Verification` : "Certificate Verification"}
-        description="Verify the authenticity of Cyber Hub certificates and credentials."
+        description={data ? `Verified Certificate of ${data.achievement} for ${data.name} from SCPSC Cyber Hub.` : "Verify the authenticity of Cyber Hub certificates and credentials."}
+        image={id ? `/certificates/${id}.png` : undefined}
       />
       
       <div className="max-w-6xl mx-auto">
@@ -231,11 +232,19 @@ const Verification = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <Button onClick={handleDownload} className="flex-1 gap-2 cyber-button h-12">
                   <Download className="h-4 w-4" />
-                  Download PDF
+                  Download PNG
                 </Button>
-                <Button variant="outline" className="flex-1 gap-2 border-white/10 hover:bg-white/5 h-12">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 gap-2 border-white/10 hover:bg-white/5 h-12"
+                  onClick={() => {
+                    const shareUrl = `${window.location.origin}/verify/${id}`;
+                    navigator.clipboard.writeText(shareUrl);
+                    alert("Verification link copied to clipboard!");
+                  }}
+                >
                   <Share2 className="h-4 w-4" />
-                  Share Certificate
+                  Copy Share Link
                 </Button>
               </div>
             </div>
