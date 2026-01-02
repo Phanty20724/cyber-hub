@@ -24,7 +24,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Portfoliathon Champion",
     type: "Winner",
-    skills: ["Web Development", "UI/UX Design", "Project Management", "Technical Presentation"]
+    skills: ["Winner - 1st Place", "Excellence in Portfoliathon 1.0", "Web Development", "UI/UX Design", "Project Management", "Technical Presentation"]
   },
   "k8j2n4m1p9o0l3k2j1h5": {
     name: "Daiyan Rahman",
@@ -32,7 +32,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "1st Runner Up",
     type: "Winner",
-    skills: ["Full Stack Development", "Problem Solving", "Frontend Optimization", "React.js"]
+    skills: ["Winner - 2nd Place", "Great Achievement in Portfoliathon 1.0", "Full Stack Development", "Problem Solving", "Frontend Optimization", "React.js"]
   },
   "a1b2c3d4e5f6g7h8i9j0": {
     name: "Mustafa Shahadat Bhuiyan",
@@ -40,7 +40,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "2nd Runner Up",
     type: "Winner",
-    skills: ["UI/UX Design", "Responsive Web Design", "Typography", "Color Theory"]
+    skills: ["Winner - 3rd Place", "Great Achievement in Portfoliathon 1.0", "UI/UX Design", "Responsive Web Design", "Typography", "Color Theory"]
   },
   "z9y8x7w6v5u4t3s2r1q0": {
     name: "Muhammad Assad Ullah",
@@ -48,7 +48,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Web Development", "Backend Logic", "API Integration"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Development", "Backend Logic", "API Integration"]
   },
   "m1n2b3v4c5x6z7l8k9j0": {
     name: "Abrar Tahir",
@@ -56,7 +56,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Frontend Engineering", "CSS Frameworks", "JavaScript"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Frontend Engineering", "CSS Frameworks", "JavaScript"]
   },
   "p1o2i3u4y5t6r7e8w9q0": {
     name: "Aaliyan Adnan",
@@ -64,7 +64,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Web Design", "Visual Communication", "Technical Writing"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Design", "Visual Communication", "Technical Writing"]
   },
   "q1w2e3r4t5y6u7i8o9p0": {
     name: "Ridika Faria",
@@ -72,7 +72,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Frontend Development", "Creative Direction", "Presentation"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Frontend Development", "Creative Direction", "Presentation"]
   },
   "a0s9d8f7g6h5j4k3l2m1": {
     name: "Muzamil Khan",
@@ -80,7 +80,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Web Development", "UI Animation", "Layout Design"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Development", "UI Animation", "Layout Design"]
   },
   "z1x2c3v4b5n6m7q8w9e0": {
     name: "Isfar Nur",
@@ -88,7 +88,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Application Development", "Database Management", "Security"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Application Development", "Database Management", "Security"]
   },
   "r0t9y8u7i6o5p4a3s2d1": {
     name: "Md. Maheeb Hossain",
@@ -96,7 +96,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Web Programming", "State Management", "Version Control"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Programming", "State Management", "Version Control"]
   },
   "f1g2h3j4k5l6z7x8c9v0": {
     name: "Badal Singh",
@@ -104,7 +104,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Participation",
     type: "Participation",
-    skills: ["Web Development Basics", "HTML/CSS", "Community Engagement"]
+    skills: ["Great Achievement in Portfoliathon 1.0", "Web Development Basics", "HTML/CSS", "Community Engagement"]
   },
   "f1g2h3j4k5l6z7x8c9v3": {
     name: "Sandeep Kumar Behera",
@@ -112,7 +112,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Participation",
     type: "Participation",
-    skills: ["Web Development Basics", "Frontend Foundations", "Innovation"]
+    skills: ["Great Achievement in Portfoliathon 1.0", "Web Development Basics", "Frontend Foundations", "Innovation"]
   }
 };
 
