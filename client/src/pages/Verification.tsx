@@ -21,7 +21,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "3s233jksdu3nas31a1qw": {
     name: "Zahin Islam",
     id: "3s233jksdu3nas31a1qw",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Portfoliathon Champion",
     type: "Winner",
     skills: ["Web Development", "UI/UX Design", "Project Management", "Technical Presentation"]
@@ -29,7 +29,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "k8j2n4m1p9o0l3k2j1h5": {
     name: "Daiyan Rahman",
     id: "k8j2n4m1p9o0l3k2j1h5",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "1st Runner Up",
     type: "Winner",
     skills: ["Full Stack Development", "Problem Solving", "Frontend Optimization", "React.js"]
@@ -37,7 +37,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "a1b2c3d4e5f6g7h8i9j0": {
     name: "Mustafa Shahadat Bhuiyan",
     id: "a1b2c3d4e5f6g7h8i9j0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "2nd Runner Up",
     type: "Winner",
     skills: ["UI/UX Design", "Responsive Web Design", "Typography", "Color Theory"]
@@ -45,7 +45,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "z9y8x7w6v5u4t3s2r1q0": {
     name: "Muhammad Assad Ullah",
     id: "z9y8x7w6v5u4t3s2r1q0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Web Development", "Backend Logic", "API Integration"]
@@ -53,7 +53,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "m1n2b3v4c5x6z7l8k9j0": {
     name: "Abrar Tahir",
     id: "m1n2b3v4c5x6z7l8k9j0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Frontend Engineering", "CSS Frameworks", "JavaScript"]
@@ -61,7 +61,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "p1o2i3u4y5t6r7e8w9q0": {
     name: "Aaliyan Adnan",
     id: "p1o2i3u4y5t6r7e8w9q0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Web Design", "Visual Communication", "Technical Writing"]
@@ -69,7 +69,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "q1w2e3r4t5y6u7i8o9p0": {
     name: "Ridika Faria",
     id: "q1w2e3r4t5y6u7i8o9p0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Frontend Development", "Creative Direction", "Presentation"]
@@ -77,7 +77,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "a0s9d8f7g6h5j4k3l2m1": {
     name: "Muzamil Khan",
     id: "a0s9d8f7g6h5j4k3l2m1",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Web Development", "UI Animation", "Layout Design"]
@@ -85,7 +85,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "z1x2c3v4b5n6m7q8w9e0": {
     name: "Isfar Nur",
     id: "z1x2c3v4b5n6m7q8w9e0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Application Development", "Database Management", "Security"]
@@ -93,7 +93,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "r0t9y8u7i6o5p4a3s2d1": {
     name: "Md. Maheeb Hossain",
     id: "r0t9y8u7i6o5p4a3s2d1",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
     skills: ["Web Programming", "State Management", "Version Control"]
@@ -101,7 +101,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "f1g2h3j4k5l6z7x8c9v0": {
     name: "Badal Singh",
     id: "f1g2h3j4k5l6z7x8c9v0",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Participation",
     type: "Participation",
     skills: ["Web Development Basics", "HTML/CSS", "Community Engagement"]
@@ -109,7 +109,7 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
   "f1g2h3j4k5l6z7x8c9v3": {
     name: "Sandeep Kumar Behera",
     id: "f1g2h3j4k5l6z7x8c9v3",
-    date: "December 1, 2024",
+    date: "December 31, 2025",
     achievement: "Certificate of Participation",
     type: "Participation",
     skills: ["Web Development Basics", "Frontend Foundations", "Innovation"]
