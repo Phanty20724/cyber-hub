@@ -44,7 +44,6 @@ const CertificateSearch = () => {
         <SectionTitle 
           title="Certificate Directory" 
           subtitle="Search and verify digital credentials issued by Cyber Hub"
-          align="center"
         />
 
         <div className="mt-12 relative max-w-2xl mx-auto">
