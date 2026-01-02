@@ -16,6 +16,7 @@ import Join from "./pages/Join";
 import Admin from "./pages/Admin";
 import Portfoliathon from "./pages/Portfoliathon";
 import Verification from "./pages/Verification";
+import CertificateSearch from "./pages/CertificateSearch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/join" element={<Join />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/portfoliathon" element={<Portfoliathon />} />
+          <Route path="/verify" element={<CertificateSearch />} />
           <Route path="/verify/:id" element={<Verification />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
