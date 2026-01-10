@@ -18,12 +18,12 @@ const INITIAL_EVENTS = [
     date: "December 31, 2025",
     time: "10:00 AM",
     location: "SCPSC Campus",
-    attendees: "100+",
+    attendees: "25+",
     description: "The biggest intra-school portfolio building hackathon. This event has ended. Special credits to President Saad, Program secretary Tanvir, Publicity Orko, and all executives and representatives for their dedication.",
     type: "Competition",
     status: "archive",
     featured: false,
-    image: "/portfoliathon-intra.png"
+    image: "/portfoliathon-og.jpg"
   },
   {
     id: 2,
