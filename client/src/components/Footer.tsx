@@ -31,6 +31,28 @@ const Footer: React.FC = () => {
             CYBER HUB
           </h2>
           
+          <div className="mt-8 flex flex-col items-center">
+            <a 
+              href="/Cyber_Hub.apk" 
+              download="Cyber_Hub.apk"
+              className="group relative block overflow-hidden rounded-xl border border-primary/20 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/20"
+            >
+              <img 
+                src="/apk-download.jpg" 
+                alt="Download Cyber Hub APK" 
+                className="w-48 h-auto md:w-56 lg:w-64 object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-display text-sm uppercase tracking-widest font-bold border border-primary/30">
+                  Download App
+                </span>
+              </div>
+            </a>
+            <p className="mt-2 text-[10px] text-muted-foreground/50 font-mono uppercase tracking-tighter">
+              Android Version 1.0.0 (Secure APK)
+            </p>
+          </div>
+          
           <div className="mt-6 text-muted-foreground text-sm space-y-1">
             <p>© 2025 SCPSC Cyber Hub. All rights reserved.</p>
             <p>
