@@ -64,7 +64,7 @@ const Events = () => {
                     </span>
                   </div>
 
-                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
                     <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4 hover:text-primary/80 transition-colors cursor-pointer">
                       {event.title}
                     </h2>
@@ -99,7 +99,7 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to={event.id === 1 ? "/portfoliathon" : "#"}>
+                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
                     <CyberButton variant="primary" size="lg">
                       Register Now
                       <ArrowRight className="inline-block ml-2 w-5 h-5" />
@@ -107,7 +107,7 @@ const Events = () => {
                   </Link>
                 </div>
                 <div className="lg:w-64 flex-shrink-0">
-                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
                     <img 
                       src={event.image || "/portfoliathon.jpg"} 
                       alt={event.title} 
@@ -152,7 +152,7 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
                     <h4 className="font-display text-xl font-bold text-foreground mb-3 hover:text-primary transition-colors cursor-pointer">
                       {event.title}
                     </h4>
@@ -193,16 +193,20 @@ const Events = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pastEvents.map((event, index) => (
                 <GlassCard key={event.id} hover3D glowColor={index % 2 === 0 ? "cyan" : "violet"}>
-                  <div className="mb-4 aspect-video overflow-hidden rounded-xl border border-white/10">
-                    <img 
-                      src={event.image || "/portfoliathon.jpg"} 
-                      alt={event.title} 
-                      className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                  <h4 className="font-display text-lg font-bold text-foreground mb-2">
-                    {event.title}
-                  </h4>
+                  <Link to="/portfoliathon" className="block">
+                    <div className="mb-4 aspect-video overflow-hidden rounded-xl border border-white/10">
+                      <img 
+                        src={event.image || "/portfoliathon.jpg"} 
+                        alt={event.title} 
+                        className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  </Link>
+                  <Link to="/portfoliathon">
+                    <h4 className="font-display text-lg font-bold text-foreground mb-2 hover:text-primary transition-colors cursor-pointer">
+                      {event.title}
+                    </h4>
+                  </Link>
                   <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <span>{event.date}</span>
                     {event.attendees && <span>{event.attendees} attended</span>}
