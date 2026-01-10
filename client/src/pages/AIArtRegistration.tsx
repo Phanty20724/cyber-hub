@@ -84,17 +84,14 @@ const AIArtRegistration = () => {
 
             {/* Form Side */}
             <div className="lg:col-span-7">
-              <GlassCard className="p-1">
-                <div className="w-full overflow-hidden rounded-xl bg-white">
-                  <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/viewform?embedded=true" 
-                    className="w-full min-h-[800px]"
-                    style={{ border: 'none' }}
-                    title="AI Art Competition Registration Form"
-                  >
-                    Loading…
-                  </iframe>
+              <GlassCard className="p-12 text-center flex flex-col items-center justify-center min-h-[400px]">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                  <Clock className="w-8 h-8 text-primary animate-pulse" />
                 </div>
+                <h2 className="font-display text-3xl font-bold mb-4 uppercase tracking-widest">Registration Opening Soon</h2>
+                <p className="text-muted-foreground font-body text-lg max-w-md mx-auto">
+                  The portal for AI Art Competition 2026 is currently being prepared. Check back shortly to secure your spot!
+                </p>
               </GlassCard>
             </div>
           </div>
