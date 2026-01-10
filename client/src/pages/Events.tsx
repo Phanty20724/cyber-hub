@@ -104,7 +104,7 @@ const Events = () => {
                     </CyberButton>
                   </Link>
                 </div>
-                <div className="lg:w-80 flex-shrink-0">
+                <div className="lg:w-64 flex-shrink-0">
                   <img 
                     src={event.image || "/portfoliathon.jpg"} 
                     alt={event.title} 
@@ -184,9 +184,16 @@ const Events = () => {
               <span className="text-primary text-glow-cyan">ARCHIVE</span> — Past Events
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {pastEvents.map((event) => (
-                <GlassCard key={event.id} hover3D={false} className="opacity-70 hover:opacity-100 transition-opacity">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pastEvents.map((event, index) => (
+                <GlassCard key={event.id} hover3D glowColor={index % 2 === 0 ? "cyan" : "violet"}>
+                  <div className="mb-4 aspect-video overflow-hidden rounded-xl border border-white/10">
+                    <img 
+                      src={event.image || "/portfoliathon.jpg"} 
+                      alt={event.title} 
+                      className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
                   <h4 className="font-display text-lg font-bold text-foreground mb-2">
                     {event.title}
                   </h4>
