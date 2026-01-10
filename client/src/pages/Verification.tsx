@@ -15,6 +15,7 @@ interface CertificateData {
   achievement: string;
   type: 'Winner' | 'Runner Up' | 'Participation';
   skills: string[];
+  image?: string;
 }
 
 const CERTIFICATE_DATA: Record<string, CertificateData> = {
@@ -48,7 +49,8 @@ const CERTIFICATE_DATA: Record<string, CertificateData> = {
     date: "December 31, 2025",
     achievement: "Certificate of Achievement",
     type: "Winner",
-    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Development", "Backend Logic", "API Integration"]
+    skills: ["Outstanding Performance in Portfoliathon 1.0", "Web Development", "Backend Logic", "API Integration"],
+    image: "/certificates/assadullah.png"
   },
   "m1n2b3v4c5x6z7l8k9j0": {
     name: "Abrar Tahir",
@@ -135,7 +137,7 @@ const Verification = () => {
   const handleDownload = () => {
     if (id) {
       const link = document.createElement('a');
-      link.href = `/certificates/${id}.png`;
+      link.href = data?.image || `/certificates/${id}.png`;
       link.download = `Certificate_${data?.name.replace(/\s+/g, '_')}_CyberHub.png`;
       link.click();
     }
@@ -146,7 +148,7 @@ const Verification = () => {
       <SEO 
         title={data ? `${data.name} - Certificate Verification` : "Certificate Verification"}
         description={data ? `Verified Certificate of ${data.achievement} for ${data.name} from SCPSC Cyber Hub.` : "Verify the authenticity of Cyber Hub certificates and credentials."}
-        image={id ? `/certificates/${id}.png` : undefined}
+        image={data?.image || (id ? `/certificates/${id}.png` : undefined)}
       />
       
       <div className="max-w-6xl mx-auto">
@@ -255,7 +257,7 @@ const Verification = () => {
                 <GlassCard className="overflow-hidden p-0 border-white/10 shadow-2xl group">
                   <div className="aspect-[1.414/1] relative bg-black/40 flex items-center justify-center p-4">
                     <img 
-                      src={`/certificates/${id}.png`} 
+                      src={data?.image || `/certificates/${id}.png`} 
                       alt={`Certificate for ${data.name}`}
                       className="w-full h-full object-contain shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                       loading="eager"
