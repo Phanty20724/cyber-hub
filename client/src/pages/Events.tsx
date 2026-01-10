@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
 import SEO from "@/components/SEO";
+import INITIAL_EVENTS from "@/data/events";
 
 interface Event {
   id: number;
@@ -20,13 +20,8 @@ interface Event {
 }
 
 const Events = () => {
-  const { data: events = [], isLoading } = useQuery<Event[]>({
-    queryKey: ["events"],
-    queryFn: async () => {
-      const res = await fetch("/api/events");
-      return res.json();
-    },
-  });
+  const events = INITIAL_EVENTS;
+  const isLoading = false;
 
   const upcomingEvents = events.filter((e) => e.status === "upcoming");
   const pastEvents = events.filter((e) => e.status === "archive");
