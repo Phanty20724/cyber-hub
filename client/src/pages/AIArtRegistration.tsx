@@ -66,7 +66,7 @@ const AIArtRegistration = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground uppercase">Time</p>
-                      <p className="font-medium">10:00 AM onwards</p>
+                      <p className="font-medium">10:00 AM - 06:00 PM</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -75,7 +75,7 @@ const AIArtRegistration = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground uppercase">Venue</p>
-                      <p className="font-medium">Online / Main Hall</p>
+                      <p className="font-medium">Online</p>
                     </div>
                   </div>
                 </div>

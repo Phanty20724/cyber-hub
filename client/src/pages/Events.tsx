@@ -216,6 +216,19 @@ const Events = () => {
             </div>
           </div>
         )}
+
+        <div className="mt-16 text-center">
+          <GlassCard className="p-8 border-primary/30 inline-block">
+            <h3 className="font-display text-2xl font-bold mb-4">ALREADY PARTICIPATED?</h3>
+            <p className="text-muted-foreground mb-6">Verify your achievement and download your official certificate.</p>
+            <Link to="/verify">
+              <CyberButton variant="primary" size="lg">
+                Verify & Claim Certificate
+                <ArrowRight className="inline-block ml-2 w-5 h-5" />
+              </CyberButton>
+            </Link>
+          </GlassCard>
+        </div>
       </div>
     </div>
     </>
