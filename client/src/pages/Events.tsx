@@ -64,9 +64,11 @@ const Events = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4">
-                    {event.title}
-                  </h2>
+                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                    <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4 hover:text-primary/80 transition-colors cursor-pointer">
+                      {event.title}
+                    </h2>
+                  </Link>
 
                   <p className="text-foreground font-body text-sm md:text-lg mb-4 md:mb-6">
                     {event.description}
@@ -97,7 +99,7 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to="/portfoliathon">
+                  <Link to={event.id === 1 ? "/portfoliathon" : "#"}>
                     <CyberButton variant="primary" size="lg">
                       Register Now
                       <ArrowRight className="inline-block ml-2 w-5 h-5" />
@@ -105,11 +107,13 @@ const Events = () => {
                   </Link>
                 </div>
                 <div className="lg:w-64 flex-shrink-0">
-                  <img 
-                    src={event.image || "/portfoliathon.jpg"} 
-                    alt={event.title} 
-                    className="w-full h-auto rounded-xl border border-primary/30 shadow-lg shadow-primary/20"
-                  />
+                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                    <img 
+                      src={event.image || "/portfoliathon.jpg"} 
+                      alt={event.title} 
+                      className="w-full h-auto rounded-xl border border-primary/30 shadow-lg shadow-primary/20 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    />
+                  </Link>
                 </div>
               </div>
             </GlassCard>
@@ -148,9 +152,11 @@ const Events = () => {
                     )}
                   </div>
 
-                  <h4 className="font-display text-xl font-bold text-foreground mb-3">
-                    {event.title}
-                  </h4>
+                  <Link to={event.id === 1 ? "/portfoliathon" : "/portfoliathon"}>
+                    <h4 className="font-display text-xl font-bold text-foreground mb-3 hover:text-primary transition-colors cursor-pointer">
+                      {event.title}
+                    </h4>
+                  </Link>
 
                   <p className="text-muted-foreground font-body text-sm mb-4">
                     {event.description}

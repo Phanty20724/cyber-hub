@@ -37,7 +37,7 @@ const Portfoliathon = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16">
             <div className="w-full lg:w-1/2">
               <img 
-                src="/portfoliathon-intra.png" 
+                src="/portfoliathon-og.jpg" 
                 alt="PORTFOLIATHON INTRA 1.0" 
                 className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl shadow-primary/20"
               />
