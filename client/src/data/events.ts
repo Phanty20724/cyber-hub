@@ -1,15 +1,27 @@
 const INITIAL_EVENTS = [
   {
+    id: 0,
+    title: "AI ART COMPETITION 2026",
+    date: "January 30, 2026",
+    time: "10:00 AM",
+    location: "Online/Main Hall",
+    attendees: "150+",
+    description: "Unleash your creativity with AI! Join our first AI-driven art competition and win exciting prizes.",
+    type: "Competition",
+    status: "upcoming",
+    featured: true
+  },
+  {
     id: 1,
     title: "PORTFOLIATHON INTRA 1.0",
     date: "December 31, 2025",
     time: "10:00 AM",
     location: "SCPSC Campus",
     attendees: "100+",
-    description: "The biggest intra-school portfolio building hackathon. Show off your skills and win exciting prizes!",
+    description: "The biggest intra-school portfolio building hackathon. This event has ended. Special credits to President Saad, Program secretary Tanvir, Publicity Orko, and all executives and representatives for their dedication.",
     type: "Competition",
-    status: "upcoming",
-    featured: true
+    status: "archive",
+    featured: false
   },
   {
     id: 2,
