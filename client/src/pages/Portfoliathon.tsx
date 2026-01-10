@@ -29,7 +29,7 @@ const Portfoliathon = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground font-body mb-8 max-w-2xl mx-auto">
-              This event has successfully concluded. Special credits to <span className="text-primary font-bold">President Saad</span>, <span className="text-primary font-bold">Program secretary Tanvir</span>, <span className="text-primary font-bold">Publicity Orko</span>, and all executives and representatives for their exceptional work in conducting this event.
+              This event has successfully concluded. Special credits to <span className="text-primary font-bold">Saad Bin Tofayel (President)</span>, <span className="text-primary font-bold">Tanvir Alam Rifat (Program Secretary)</span>, <span className="text-primary font-bold">Ahnaf Hassan Orko (Publicity Secretary)</span>, and all executives and representatives for their exceptional work in conducting this event.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const Portfoliathon = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16">
             <div className="w-full lg:w-1/2">
               <img 
-                src="/portfoliathon.jpg" 
+                src="/portfoliathon-intra.png" 
                 alt="PORTFOLIATHON INTRA 1.0" 
                 className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl shadow-primary/20"
               />

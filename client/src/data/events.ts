@@ -9,7 +9,8 @@ const INITIAL_EVENTS = [
     description: "Unleash your creativity with AI! Join our first AI-driven art competition and win exciting prizes.",
     type: "Competition",
     status: "upcoming",
-    featured: true
+    featured: true,
+    image: "/ai-art-competition.png"
   },
   {
     id: 1,
@@ -21,7 +22,8 @@ const INITIAL_EVENTS = [
     description: "The biggest intra-school portfolio building hackathon. This event has ended. Special credits to President Saad, Program secretary Tanvir, Publicity Orko, and all executives and representatives for their dedication.",
     type: "Competition",
     status: "archive",
-    featured: false
+    featured: false,
+    image: "/portfoliathon-intra.png"
   },
   {
     id: 2,

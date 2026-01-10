@@ -17,6 +17,7 @@ interface Event {
   type: string;
   status: string;
   featured: boolean;
+  image?: string;
 }
 
 const Events = () => {
@@ -105,8 +106,8 @@ const Events = () => {
                 </div>
                 <div className="lg:w-80 flex-shrink-0">
                   <img 
-                    src="/portfoliathon.jpg" 
-                    alt="PORTFOLIATHON INTRA 1.0" 
+                    src={event.image || "/portfoliathon.jpg"} 
+                    alt={event.title} 
                     className="w-full h-auto rounded-xl border border-primary/30 shadow-lg shadow-primary/20"
                   />
                 </div>
