@@ -29,7 +29,7 @@ const Portfoliathon = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground font-body mb-8 max-w-2xl mx-auto">
-              This event has successfully concluded. Special credits to <span className="text-primary font-bold">Saad Bin Tofayel (President)</span>, <span className="text-primary font-bold">Tanvir Alam Rifat (Program Secretary)</span>, <span className="text-primary font-bold">Ahnaf Hassan Orko (Publicity Secretary)</span>, and all executives and representatives for their exceptional work in conducting this event.
+              This event has successfully concluded. Special credits to <span className="text-primary font-bold">Saad Bin Tofayel (President)</span>, <span className="text-primary font-bold">Tanvir Alam Rifat (Program Secretary)</span>, <span className="text-primary font-bold">Ahnaf Hassan Orko (Publicity Secretary)</span>, <span className="text-primary font-bold">Shadiq Al Murtoza (Treasurer)</span>, and all executives and representatives for their exceptional work in conducting this event.
             </p>
           </div>
 
