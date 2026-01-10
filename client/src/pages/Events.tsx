@@ -64,7 +64,7 @@ const Events = () => {
                     </span>
                   </div>
 
-                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
                     <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4 hover:text-primary/80 transition-colors cursor-pointer">
                       {event.title}
                     </h2>
@@ -99,7 +99,7 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
                     <CyberButton variant="primary" size="lg">
                       Register Now
                       <ArrowRight className="inline-block ml-2 w-5 h-5" />
@@ -107,7 +107,7 @@ const Events = () => {
                   </Link>
                 </div>
                 <div className="lg:w-64 flex-shrink-0">
-                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
                     <img 
                       src={event.image || "/portfoliathon.jpg"} 
                       alt={event.title} 
@@ -152,7 +152,7 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to={event.id === 0 ? "#" : "/portfoliathon"}>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
                     <h4 className="font-display text-xl font-bold text-foreground mb-3 hover:text-primary transition-colors cursor-pointer">
                       {event.title}
                     </h4>
