@@ -31,29 +31,29 @@ const Footer: React.FC = () => {
             CYBER HUB
           </h2>
           
-          <div className="mt-8 flex flex-col items-center">
+          <div className="mt-8 flex items-center justify-center gap-4">
             <a 
               href="/Cyber_Hub.apk" 
               download="Cyber_Hub.apk"
-              className="group relative block overflow-hidden rounded-xl border border-primary/20 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/20"
+              className="group relative block overflow-hidden rounded-lg border border-primary/20 hover:border-primary/50 transition-all duration-300 shadow-md hover:shadow-primary/10"
             >
               <img 
                 src="/apk-download.jpg" 
                 alt="Download Cyber Hub APK" 
-                className="w-48 h-auto md:w-56 lg:w-64 object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-32 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-display text-sm uppercase tracking-widest font-bold border border-primary/30">
-                  Download App
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="bg-background/90 backdrop-blur-sm px-2 py-1 rounded text-primary font-display text-[10px] uppercase tracking-widest font-bold border border-primary/20">
+                  Download
                 </span>
               </div>
             </a>
-            <p className="mt-2 text-[10px] text-muted-foreground/50 font-mono uppercase tracking-tighter">
-              Android Version 1.0.0 (Secure APK)
+            <p className="text-[10px] text-muted-foreground/60 font-mono uppercase tracking-tighter border-l border-white/10 pl-4 py-1">
+              Android v1.0.0
             </p>
           </div>
           
-          <div className="mt-6 text-muted-foreground text-sm space-y-1">
+          <div className="mt-8 text-muted-foreground text-sm space-y-1">
             <p>© 2025 SCPSC Cyber Hub. All rights reserved.</p>
             <p>
               Made by{" "}
