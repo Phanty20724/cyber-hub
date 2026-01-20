@@ -26,6 +26,8 @@ const Navbar = () => {
               src="/logo.png" 
               alt="SCPSC Cyber Hub" 
               className="h-10 md:h-12 w-10 md:w-12 object-contain shrink-0"
+              loading="eager"
+              fetchPriority="high"
             />
             <span className="font-display text-sm md:text-lg font-bold text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
               SCPSC Cyber Hub

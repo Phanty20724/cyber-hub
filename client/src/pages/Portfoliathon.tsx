@@ -15,10 +15,10 @@ const Portfoliathon = () => {
       <div className="min-h-screen pt-24 pb-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/30 mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
-              <span className="font-display text-sm text-primary uppercase tracking-wider">
-                72 Hours Hackathon
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-destructive/30 mb-6">
+              <span className="w-2 h-2 rounded-full bg-destructive animate-glow-pulse" />
+              <span className="font-display text-sm text-destructive uppercase tracking-wider">
+                Event Ended
               </span>
             </div>
 
@@ -29,7 +29,7 @@ const Portfoliathon = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground font-body mb-8 max-w-2xl mx-auto">
-              Build. Innovate. Compete. Join the ultimate portfolio-building hackathon experience.
+              This event has successfully concluded. Special credits to <span className="text-primary font-bold">Saad Bin Tofayel (President)</span>, <span className="text-primary font-bold">Tanvir Alam Rifat (Program Secretary)</span>, <span className="text-primary font-bold">Ahnaf Hassan Orko (Publicity Secretary)</span>, <span className="text-primary font-bold">Shadiq Al Murtoza (Treasurer)</span>, and all executives and representatives for their exceptional work in conducting this event.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ const Portfoliathon = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16">
             <div className="w-full lg:w-1/2">
               <img 
-                src="/portfoliathon.jpg" 
+                src="/portfoliathon-og.jpg" 
                 alt="PORTFOLIATHON INTRA 1.0" 
                 className="w-full h-auto rounded-2xl border border-primary/30 shadow-2xl shadow-primary/20"
               />
@@ -91,32 +91,12 @@ const Portfoliathon = () => {
             </div>
           </div>
 
-          {/* Registration Form Section - Full Width Below */}
+          {/* Registration Form Section - Removed since event ended */}
+          {/* 
           <div className="mb-20">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mb-6">
-                <Code2 className="w-10 h-10 text-primary" />
-              </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
-                Register <span className="text-primary text-glow-cyan">Now</span>
-              </h2>
-              <p className="text-muted-foreground font-body text-lg max-w-xl mx-auto">
-                Secure your spot in PORTFOLIATHON INTRA 1.0 and start your journey
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto">
-              <div className="w-full overflow-hidden rounded-2xl shadow-2xl">
-                <iframe 
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSdoE8X_E2Fsmxw9q9IwUZnk2eJo0_KTXZ535QEzixbvO-seJQ/viewform?embedded=true" 
-                  className="w-full min-h-[500px] sm:min-h-[700px] md:min-h-[900px] lg:min-h-[1100px]"
-                  style={{ border: 'none', background: 'white' }}
-                  title="Portfoliathon Registration Form"
-                >
-                  Loading…
-                </iframe>
-              </div>
-            </div>
-          </div>
+            ...
+          </div> 
+          */}
 
           <div className="mb-20">
             <div className="text-center mb-12">

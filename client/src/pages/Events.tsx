@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Users, Clock, ArrowRight } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SectionTitle from "@/components/SectionTitle";
 import CyberButton from "@/components/CyberButton";
 import SEO from "@/components/SEO";
+import INITIAL_EVENTS from "@/data/events";
 
 interface Event {
   id: number;
@@ -17,16 +17,12 @@ interface Event {
   type: string;
   status: string;
   featured: boolean;
+  image?: string;
 }
 
 const Events = () => {
-  const { data: events = [], isLoading } = useQuery<Event[]>({
-    queryKey: ["events"],
-    queryFn: async () => {
-      const res = await fetch("/api/events");
-      return res.json();
-    },
-  });
+  const events = INITIAL_EVENTS;
+  const isLoading = false;
 
   const upcomingEvents = events.filter((e) => e.status === "upcoming");
   const pastEvents = events.filter((e) => e.status === "archive");
@@ -68,9 +64,11 @@ const Events = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4">
-                    {event.title}
-                  </h2>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
+                    <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary text-glow-cyan mb-3 md:mb-4 hover:text-primary/80 transition-colors cursor-pointer">
+                      {event.title}
+                    </h2>
+                  </Link>
 
                   <p className="text-foreground font-body text-sm md:text-lg mb-4 md:mb-6">
                     {event.description}
@@ -101,19 +99,21 @@ const Events = () => {
                     )}
                   </div>
 
-                  <Link to="/portfoliathon">
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
                     <CyberButton variant="primary" size="lg">
                       Register Now
                       <ArrowRight className="inline-block ml-2 w-5 h-5" />
                     </CyberButton>
                   </Link>
                 </div>
-                <div className="lg:w-80 flex-shrink-0">
-                  <img 
-                    src="/portfoliathon.jpg" 
-                    alt="PORTFOLIATHON INTRA 1.0" 
-                    className="w-full h-auto rounded-xl border border-primary/30 shadow-lg shadow-primary/20"
-                  />
+                <div className="lg:w-64 flex-shrink-0">
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
+                    <img 
+                      src={event.image || "/portfoliathon.jpg"} 
+                      alt={event.title} 
+                      className="w-full h-auto rounded-xl border border-primary/30 shadow-lg shadow-primary/20 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    />
+                  </Link>
                 </div>
               </div>
             </GlassCard>
@@ -152,9 +152,11 @@ const Events = () => {
                     )}
                   </div>
 
-                  <h4 className="font-display text-xl font-bold text-foreground mb-3">
-                    {event.title}
-                  </h4>
+                  <Link to={event.id === 0 ? "/ai-art-registration" : "/portfoliathon"}>
+                    <h4 className="font-display text-xl font-bold text-foreground mb-3 hover:text-primary transition-colors cursor-pointer">
+                      {event.title}
+                    </h4>
+                  </Link>
 
                   <p className="text-muted-foreground font-body text-sm mb-4">
                     {event.description}
@@ -188,12 +190,23 @@ const Events = () => {
               <span className="text-primary text-glow-cyan">ARCHIVE</span> — Past Events
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {pastEvents.map((event) => (
-                <GlassCard key={event.id} hover3D={false} className="opacity-70 hover:opacity-100 transition-opacity">
-                  <h4 className="font-display text-lg font-bold text-foreground mb-2">
-                    {event.title}
-                  </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pastEvents.map((event, index) => (
+                <GlassCard key={event.id} hover3D glowColor={index % 2 === 0 ? "cyan" : "violet"}>
+                  <Link to="/portfoliathon" className="block">
+                    <div className="mb-4 aspect-video overflow-hidden rounded-xl border border-white/10">
+                      <img 
+                        src={event.image || "/portfoliathon.jpg"} 
+                        alt={event.title} 
+                        className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  </Link>
+                  <Link to="/portfoliathon">
+                    <h4 className="font-display text-lg font-bold text-foreground mb-2 hover:text-primary transition-colors cursor-pointer">
+                      {event.title}
+                    </h4>
+                  </Link>
                   <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <span>{event.date}</span>
                     {event.attendees && <span>{event.attendees} attended</span>}
@@ -203,6 +216,19 @@ const Events = () => {
             </div>
           </div>
         )}
+
+        <div className="mt-16 text-center">
+          <GlassCard className="p-8 border-primary/30 inline-block">
+            <h3 className="font-display text-2xl font-bold mb-4">ALREADY PARTICIPATED?</h3>
+            <p className="text-muted-foreground mb-6">Verify your achievement and download your official certificate.</p>
+            <Link to="/verify">
+              <CyberButton variant="primary" size="lg">
+                Verify & Claim Certificate
+                <ArrowRight className="inline-block ml-2 w-5 h-5" />
+              </CyberButton>
+            </Link>
+          </GlassCard>
+        </div>
       </div>
     </div>
     </>
